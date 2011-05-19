@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/scripts/scripts.iml" filepath="$PROJECT_DIR$/scripts/scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serpent-server/serpent-server.iml" filepath="$PROJECT_DIR$/serpent-server/serpent-server.iml" />
     </modules>
   </component>
 </project>
