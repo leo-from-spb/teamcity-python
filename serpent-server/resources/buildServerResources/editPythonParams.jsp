@@ -32,6 +32,7 @@
     </th>
     <td>
         <props:selectProperty name="bitness">
+            <props:option value="*">any</props:option>
             <props:option value="32">x32</props:option>
             <props:option value="64">x64</props:option>
         </props:selectProperty>
@@ -43,12 +44,63 @@
 
 
 <tr>
-    <th>
-        <label>File to run</label>
-    </th>
-    <td>
-        <props:textProperty name="python.file" className="longField"/>
-    </td>
+  <th>Script:</th>
+  <td>
+    <props:selectProperty name="script.mode" id="script_mode" className="longField" onchange="BS.Python.updateScriptMode()">
+      <props:option value="file">File</props:option>
+      <props:option value="code">Source code</props:option>
+    </props:selectProperty>
+    <span class="error" id="error_script_mode"></span>
+  </td>
 </tr>
+
+<tr id="python_script_file">
+  <th><label for="script.file.name">Python file:</label></th>
+  <td>
+    <props:textProperty name="script.file.name" className="longField"/>
+    <span class="smallNote">Enter Python file path relative to checkout directory</span>
+    <span class="error" id="error_script_file_name"></span>
+  </td>
+</tr>
+
+<tr id="python_script_code">
+  <th><label for="python.script.code">Python script source:</label></th>
+  <td>
+    <props:multilineProperty name="python.script.code"
+                             linkTitle="Enter Python script content"
+                             cols="60" rows="15"
+                             expanded="${true}"/>
+    <span class="smallNote">Enter Python script. TeamCity references will be replaced in the code</span>
+    <span class="error" id="error_python_script_code"></span>
+  </td>
+</tr>
+
+
+<script type="text/javascript">
+
+  BS.Python =
+  {
+     updateScriptMode : function()
+     {
+       var val = $('script_mode').value;
+       if (val == 'file')
+       {
+           BS.Util.hide($('python_script_code'));
+           BS.Util.show($('python_script_file'));
+       }
+       if (val == 'code')
+       {
+           BS.Util.hide($('python_script_file'));
+           BS.Util.show($('python_script_code'));
+       }
+       BS.MultilineProperties.updateVisible();
+     }
+  };
+
+  BS.Python.updateScriptMode();
+
+</script>
+
+
 
 
