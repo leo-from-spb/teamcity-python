@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="tc-python">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="root">
+      <element id="archive" name="python.zip">
+        <element id="dir-copy" path="$PROJECT_DIR$/package" />
+        <element id="directory" name="server">
+          <element id="artifact" artifact-name="serpent-server" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

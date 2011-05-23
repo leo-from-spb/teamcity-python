@@ -70,6 +70,7 @@ public class PythonRunType extends RunType
   public Map<String,String> getDefaultRunnerProperties()
   {
     Map<String,String> props = new HashMap<String,String>();
+    props.put("python.kind", Character.toString(PythonKind.Classic.code));
     return props;
   }
 

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="serpent-server">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="serpent-server.jar">
+      <element id="module-output" name="serpent-server" />
+      <element id="dir-copy" path="$PROJECT_DIR$/serpent-server/resources" />
+    </root>
+  </artifact>
+</component>

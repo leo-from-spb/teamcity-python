@@ -4,8 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
        default-autowire="constructor">
 
-  <bean class="jetbrains.buildServer.cuta.logic.operators.ExternalContext"/>
-  <bean class="jetbrains.buildServer.cuta.logic.CutaDef" init-method="init"/>
-  <bean class="jetbrains.buildServer.cuta.web.AgentsCustomTableTabFactory" init-method="registerPages"/>
+  <bean class="jetbrains.buildServer.python.PythonRunType"/>
 
 </beans>
