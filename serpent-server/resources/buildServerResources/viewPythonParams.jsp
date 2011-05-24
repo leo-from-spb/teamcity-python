@@ -3,7 +3,7 @@
 <%@ taglib prefix="forms" tagdir="/WEB-INF/tags/forms" %>
 <%@ taglib prefix="l" tagdir="/WEB-INF/tags/layout" %>
 
-<jsp:useBean id="bean" class="jetbrains.buildServer.python.PythonPropertiesBean"/>
+<jsp:useBean id="bean" class="jetbrains.buildServer.python.server.PythonPropertiesBean"/>
 
 
 <div class="parameter">

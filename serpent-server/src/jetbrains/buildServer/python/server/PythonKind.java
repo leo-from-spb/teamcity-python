@@ -1,4 +1,4 @@
-package jetbrains.buildServer.python;
+package jetbrains.buildServer.python.server;
 
 import java.util.Collections;
 import java.util.Map;

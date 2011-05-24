@@ -37,8 +37,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f61b0f29-23c4-4d40-b5d9-bdbb8a288ad7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/projectCodeStyle.xml" afterPath="$PROJECT_DIR$/.idea/projectCodeStyle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp" afterPath="$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonRunType.java" afterPath="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonRunType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp" afterPath="$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-server/src/META-INF/build-server-plugin-python.xml" afterPath="$PROJECT_DIR$/serpent-server/src/META-INF/build-server-plugin-python.xml" />
+      <change type="MOVED" beforePath="E:\Ace\G\teamcity-python\serpent-server\src\jetbrains\buildServer\python\PythonPropertiesBean.java" afterPath="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonPropertiesBean.java" />
+      <change type="MOVED" beforePath="E:\Ace\G\teamcity-python\serpent-server\src\jetbrains\buildServer\python\PythonRunType.java" afterPath="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonRunType.java" />
+      <change type="MOVED" beforePath="E:\Ace\G\teamcity-python\serpent-server\src\jetbrains\buildServer\python\PythonKind.java" afterPath="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonKind.java" />
+      <change type="MOVED" beforePath="E:\Ace\G\teamcity-python\serpent-server\src\jetbrains\buildServer\python\PythonPropertiesProcessor.java" afterPath="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonPropertiesProcessor.java" />
     </list>
     <ignored path="teamcity-python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,9 +109,9 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="PythonRunType.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonRunType.java">
+        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonRunType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="34" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.0">
+            <state line="75" column="34" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,7 +120,7 @@
       <file leaf-file-name="build-server-plugin-python.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serpent-server/src/META-INF/build-server-plugin-python.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="48" selection-start="384" selection-end="384" vertical-scroll-proportion="-5.181818">
+            <state line="6" column="55" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,12 +130,10 @@
         </entry>
       </file>
       <file leaf-file-name="PythonKind.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonKind.java">
+        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonKind.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="29" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="32" column="27" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,16 +141,16 @@
       <file leaf-file-name="editPythonParams.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="47" selection-start="444" selection-end="455" vertical-scroll-proportion="0.23659004">
+            <state line="25" column="12" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.24311024">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PythonPropertiesBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonPropertiesBean.java">
+        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonPropertiesBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="13" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0">
+            <state line="6" column="1" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -154,16 +159,16 @@
       <file leaf-file-name="viewPythonParams.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="87" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
+            <state line="17" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PythonPropertiesProcessor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonPropertiesProcessor.java">
+        <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonPropertiesProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+            <state line="7" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -185,8 +190,8 @@
         <option value="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonKind.java" />
         <option value="$PROJECT_DIR$/serpent-server/src/META-INF/build-server-plugin-python.xml" />
         <option value="$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp" />
-        <option value="$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp" />
         <option value="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonRunType.java" />
+        <option value="$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp" />
       </list>
     </option>
   </component>
@@ -220,9 +225,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -251,7 +253,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,11 +267,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="buildServerResources" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -285,6 +287,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,8 +306,13 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="jetbrains.buildServer.python.server" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.getlibs">
     <configuration default="true" type="PythonUnitTestConfigurationType" factoryName="Python's unittest">
@@ -326,17 +336,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="packagepath" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-        <option name="PhingTarget" enabled="false" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -357,17 +367,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="packagepath" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="PhingTarget" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="SpecsRunConfiguration" factoryName="Specs">
@@ -520,7 +530,6 @@
       <window_info id="Data Sources" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21428572" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" x="-1116" y="354" width="836" height="572" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25442684" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="-978" y="380" width="939" height="799" />
       <window_info id="Ant Build" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19313984" sideWeight="0.70429105" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2966418" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898417" sideWeight="0.0" order="8" side_tool="false" content_ui="tabs" />
@@ -533,6 +542,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3168686" sideWeight="0.9983165" order="2" side_tool="false" content_ui="tabs" x="-1176" y="301" width="1125" height="725" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25442684" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="-978" y="380" width="939" height="799" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960423" sideWeight="0.66231346" order="5" side_tool="false" content_ui="combo" />
@@ -596,37 +606,16 @@
         <state line="14" column="4" selection-start="428" selection-end="428" vertical-scroll-proportion="0.3778409" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonPropertiesProcessor.java">
+    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonRunType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonPropertiesBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0">
+        <state line="75" column="34" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="87" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonKind.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="29" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serpent-server/src/META-INF/build-server-plugin-python.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="384" selection-end="384" vertical-scroll-proportion="-5.181818">
+        <state line="6" column="55" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -634,16 +623,37 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonRunType.java">
+    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonKind.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="34" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.0">
+        <state line="32" column="27" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonPropertiesBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="1" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonPropertiesProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="47" selection-start="444" selection-end="455" vertical-scroll-proportion="0.23659004">
+        <state line="25" column="12" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.24311024">
           <folding />
         </state>
       </provider>

@@ -1,4 +1,4 @@
-package jetbrains.buildServer.python;
+package jetbrains.buildServer.python.server;
 
 import jetbrains.buildServer.serverSide.InvalidProperty;
 import jetbrains.buildServer.serverSide.PropertiesProcessor;
