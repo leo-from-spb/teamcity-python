@@ -1,0 +1,23 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test-deploy" type="PythonConfigurationType" factoryName="Python">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <envs>
+      <env name="PYTHONUNBUFFERED" value="1" />
+    </envs>
+    <option name="SDK_HOME" value="D:/App/Python/Py.3.2.x64/python.exe" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="IS_MODULE_SDK" value="false" />
+    <module name="scripts" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/test-deploy.py" />
+    <option name="PARAMETERS" value="$TeamCityDistribution$" />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method>
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="serpent-server" />
+        <artifact name="tc-python" />
+      </option>
+    </method>
+  </configuration>
+</component>
