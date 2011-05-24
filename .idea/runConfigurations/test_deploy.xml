@@ -15,6 +15,7 @@
     <ConfigurationWrapper RunnerId="Run" />
     <method>
       <option name="BuildArtifacts" enabled="true">
+        <artifact name="serpent-agent" />
         <artifact name="serpent-server" />
         <artifact name="tc-python" />
       </option>

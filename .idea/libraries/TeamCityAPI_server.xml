@@ -5,7 +5,11 @@
       <root url="jar://$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/server-api.jar!/" />
       <root url="jar://$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/jdom.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$TeamCityDistribution$/devPackage/javadoc/openApi-help.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/" />
+    </SOURCES>
   </library>
 </component>

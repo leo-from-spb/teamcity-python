@@ -3,7 +3,11 @@
     <CLASSES>
       <root url="jar://$TeamCityDistribution$/devPackage/agent-api.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$TeamCityDistribution$/devPackage/javadoc/openApi-help.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/" />
+    </SOURCES>
   </library>
 </component>
