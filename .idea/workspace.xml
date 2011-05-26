@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="serpent-agent" />
-      <artifact name="serpent-server" />
-      <artifact name="tc-python" />
+      <artifact name="zzz-mura" />
     </artifacts-to-build>
   </component>
   <component name="BuildServerSettings">
@@ -40,7 +38,7 @@
     <list default="true" id="f61b0f29-23c4-4d40-b5d9-bdbb8a288ad7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java" afterPath="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-server/serpent-server.iml" afterPath="$PROJECT_DIR$/serpent-server/serpent-server.iml" />
     </list>
     <ignored path="teamcity-python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,10 +110,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build-agent-plugin-python.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build-agent-plugin-python.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml">
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="57" selection-start="393" selection-end="393" vertical-scroll-proportion="0.11046512">
+            <state line="6" column="57" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editPythonParams.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="18" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.5114656">
               <folding />
             </state>
           </provider>
@@ -138,10 +148,10 @@
         <option value="$PROJECT_DIR$/serpent-server/src/META-INF/build-server-plugin-python.xml" />
         <option value="$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp" />
         <option value="$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/PythonRunType.java" />
-        <option value="$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp" />
         <option value="$PROJECT_DIR$/scripts/test-deploy.py" />
         <option value="$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml" />
         <option value="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java" />
+        <option value="$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp" />
       </list>
     </option>
   </component>
@@ -175,6 +185,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -319,20 +330,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Favorites" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.24788733" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="reference.settings.ide.settings.file-colors" />
+    <property name="options.lastSelected" value="Web Contexts" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -563,20 +573,21 @@
       <window_info id="Data Sources" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21342032" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" x="-1116" y="354" width="836" height="572" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929105" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19313984" sideWeight="0.70429105" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19683377" sideWeight="0.78657967" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2966418" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898417" sideWeight="0.0" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3168686" sideWeight="0.9983165" order="2" side_tool="false" content_ui="tabs" x="-1176" y="301" width="1125" height="725" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29543337" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28853384" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929105" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29868075" sideWeight="0.6700839" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3168686" sideWeight="0.9983165" order="2" side_tool="false" content_ui="tabs" x="-1176" y="301" width="1125" height="725" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25442684" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="-978" y="380" width="939" height="799" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28853384" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991612" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960423" sideWeight="0.66231346" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -672,14 +683,21 @@
         <state line="6" column="55" selection-start="391" selection-end="391" vertical-scroll-proportion="0.11154599" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="32" selection-start="1016" selection-end="1016" vertical-scroll-proportion="0.5423228" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/getlibs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="4" selection-start="428" selection-end="428" vertical-scroll-proportion="0.25478926" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/test-deploy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="26" selection-start="254" selection-end="254" vertical-scroll-proportion="0.12693799" />
+      </provider>
+    </entry>
+    <entry file="file://$TeamCityDistribution$/webapps/ROOT/WEB-INF/tags/props/selectProperty.tag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java">
@@ -687,19 +705,19 @@
         <state line="22" column="38" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/test-deploy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="26" selection-start="254" selection-end="254" vertical-scroll-proportion="0.12693799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml">
       <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="57" selection-start="393" selection-end="393" vertical-scroll-proportion="0.11046512">
+        <state line="6" column="57" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="18" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.5114656">
           <folding />
         </state>
       </provider>
@@ -759,7 +777,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>serpent-agent</last-edited>
+          <last-edited>serpent-server</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
