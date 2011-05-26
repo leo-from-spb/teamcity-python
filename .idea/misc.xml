@@ -7,6 +7,7 @@
     <settings />
   </component>
   <component name="DependencyValidationManager">
+    <scope name="Scripts" pattern="file[scripts]:*.py" />
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="EntryPointsManager">
