@@ -1,15 +1,15 @@
 <component name="libraryTable">
   <library name="TeamCityAPI-server">
     <CLASSES>
-      <root url="jar://$TeamCityDistribution$/devPackage/server-api.jar!/" />
-      <root url="jar://$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/server-api.jar!/" />
-      <root url="jar://$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/jdom.jar!/" />
+      <root url="jar://F:/TC/17768/devPackage/server-api.jar!/" />
+      <root url="jar://F:/TC/17768/webapps/ROOT/WEB-INF/lib/server-api.jar!/" />
+      <root url="jar://F:/TC/17768/webapps/ROOT/WEB-INF/lib/jdom.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$TeamCityDistribution$/devPackage/javadoc/openApi-help.jar!/" />
+      <root url="jar://F:/TC/17768/devPackage/javadoc/openApi-help.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/" />
+      <root url="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/" />
     </SOURCES>
   </library>
 </component>
