@@ -38,16 +38,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f61b0f29-23c4-4d40-b5d9-bdbb8a288ad7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonRunnerInfo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonServiceFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/tc_python.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/tc_python.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/IdeaAPI.xml" afterPath="$PROJECT_DIR$/.idea/libraries/IdeaAPI.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/TeamCityAPI_agent.xml" afterPath="$PROJECT_DIR$/.idea/libraries/TeamCityAPI_agent.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/TeamCityAPI_common.xml" afterPath="$PROJECT_DIR$/.idea/libraries/TeamCityAPI_common.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/TeamCityAPI_server.xml" afterPath="$PROJECT_DIR$/.idea/libraries/TeamCityAPI_server.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webContexts.xml" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml" afterPath="$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serpent-server/serpent-server.iml" afterPath="$PROJECT_DIR$/serpent-server/serpent-server.iml" />
     </list>
     <ignored path="teamcity-python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,10 +103,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PythonService.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PythonService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="19" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.5113636">
+            <state line="33" column="33" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,20 +116,15 @@
         <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonServiceFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="27" selection-start="349" selection-end="369" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="build-agent-plugin-python.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="4" selection-start="336" selection-end="336" vertical-scroll-proportion="-5.181818">
+            <state line="6" column="4" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -146,9 +134,7 @@
         <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonRunnerInfo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="24" column="4" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -199,7 +185,7 @@
         </entry>
       </file>
       <file leaf-file-name="BuildServiceAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/BuildServiceAdapter.java">
+        <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/BuildServiceAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="44" column="47" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0">
               <folding />
@@ -217,7 +203,7 @@
         </entry>
       </file>
       <file leaf-file-name="ProgramCommandLine.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/ProgramCommandLine.java">
+        <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/ProgramCommandLine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="26" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0">
               <folding />
@@ -225,10 +211,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleProgramCommandLine.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/SimpleProgramCommandLine.java">
+      <file leaf-file-name="SimpleProgramCommandLine.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/SimpleProgramCommandLine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="37" selection-start="1419" selection-end="1443" vertical-scroll-proportion="0.0">
+            <state line="44" column="41" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.023312883">
               <folding />
             </state>
           </provider>
@@ -254,11 +240,11 @@
         <option value="$PROJECT_DIR$/scripts/test-deploy.py" />
         <option value="$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp" />
         <option value="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonContext.java" />
-        <option value="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java" />
         <option value="$PROJECT_DIR$/serpent-agent/teamcity-plugin.xml" />
         <option value="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonRunnerInfo.java" />
         <option value="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonServiceFactory.java" />
         <option value="$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml" />
+        <option value="$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java" />
       </list>
     </option>
   </component>
@@ -292,6 +278,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -436,14 +424,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.24788733" />
@@ -676,20 +662,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1168" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21342032" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" x="-1116" y="354" width="836" height="572" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21342032" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" x="-1116" y="354" width="836" height="572" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19313984" sideWeight="0.70429105" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2966418" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898417" sideWeight="0.0" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29543337" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28853384" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28797764" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929105" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23060685" sideWeight="0.6831314" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23060685" sideWeight="0.78657967" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3168686" sideWeight="0.9983165" order="2" side_tool="false" content_ui="tabs" x="-1176" y="301" width="1125" height="725" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -749,11 +735,47 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/teamcity-info.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-agent/teamcity-plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="227" selection-end="227" vertical-scroll-proportion="0.093251534" />
+      </provider>
+    </entry>
+    <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/CommandLineBuildServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="47" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.91903406" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="33" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="27" selection-start="349" selection-end="369" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="4" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0" />
+      </provider>
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonRunnerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="4" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/editPythonParams.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="24" selection-start="1016" selection-end="1016" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="29" column="24" selection-start="1016" selection-end="1016" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonPropertiesProcessor.java">
@@ -763,9 +785,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/serpent-server/resources/buildServerResources/viewPythonParams.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serpent-server/src/jetbrains/buildServer/python/server/PythonRunType.java">
@@ -778,7 +798,7 @@
         <state line="6" column="1" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/BuildServiceAdapter.java">
+    <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/BuildServiceAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="47" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0" />
       </provider>
@@ -788,70 +808,14 @@
         <state line="31" column="4" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/ProgramCommandLine.java">
+    <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/ProgramCommandLine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/SimpleProgramCommandLine.java">
+    <entry file="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/SimpleProgramCommandLine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="37" selection-start="1419" selection-end="1443" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/teamcity-info.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-agent/teamcity-plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="227" selection-end="227" vertical-scroll-proportion="0.093251534">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/jetbrains/buildServer/agent/runner/CommandLineBuildServiceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="47" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.91903406">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonRunnerInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="4" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonServiceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="27" selection-start="349" selection-end="369" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="336" selection-end="336" vertical-scroll-proportion="-5.181818">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serpent-agent/src/jetbrains/buildServer/python/agent/PythonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="19" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.5113636">
-          <folding />
-        </state>
+        <state line="44" column="41" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.023312883" />
       </provider>
     </entry>
   </component>
@@ -860,7 +824,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>serpent-agent</last-edited>
+          <last-edited>serpent-server</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

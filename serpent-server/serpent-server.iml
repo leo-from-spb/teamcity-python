@@ -14,7 +14,7 @@
           <deploymentDescriptor name="web.xml" url="file://$TeamCityDistribution$/webapps/ROOT/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://F:/TC/17768/webapps/ROOT" relative="/" />
+          <root url="file://$TeamCityDistribution$/webapps/ROOT" relative="/" />
         </webroots>
       </configuration>
     </facet>
@@ -33,11 +33,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://F:/TC/17768/webapps/ROOT" />
+          <root url="file://$TeamCityDistribution$/webapps/ROOT" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://F:/TC/17768/webapps/ROOT" />
+          <root url="file://$TeamCityDistribution$/webapps/ROOT" />
         </SOURCES>
       </library>
     </orderEntry>
