@@ -5,7 +5,7 @@
     <envs>
       <env name="PYTHONUNBUFFERED" value="1" />
     </envs>
-    <option name="SDK_HOME" value="D:/App/Python/Py.3.2.x64/python.exe" />
+    <option name="SDK_HOME" value="$PythonExe$" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="true" />
     <module name="scripts" />
