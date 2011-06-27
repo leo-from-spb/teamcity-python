@@ -11,7 +11,7 @@
     <facet type="web" name="Web">
       <configuration>
         <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://F:/TC/17768/webapps/ROOT/WEB-INF/web.xml" />
+          <deploymentDescriptor name="web.xml" url="file://$TeamCityDistribution$/webapps/ROOT/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
           <root url="file://F:/TC/17768/webapps/ROOT" relative="/" />

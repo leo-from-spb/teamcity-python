@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="TeamCityAPI-common">
     <CLASSES>
-      <root url="jar://F:/TC/17768/devPackage/common-api.jar!/" />
+      <root url="jar://$TeamCityDistribution$/devPackage/common-api.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://F:/TC/17768/devPackage/javadoc/openApi-help.jar!/" />
+      <root url="jar://$TeamCityDistribution$/devPackage/javadoc/openApi-help.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://F:/TC/17768/devPackage/src/openApi-source.jar!/" />
+      <root url="jar://$TeamCityDistribution$/devPackage/src/openApi-source.jar!/" />
     </SOURCES>
   </library>
 </component>
