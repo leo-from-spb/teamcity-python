@@ -4,3 +4,4 @@ out
 lib/**/*
 **/.svn
 .idea/workspace.*
+.idea/uiDesigner.*
