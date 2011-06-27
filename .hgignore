@@ -3,3 +3,4 @@ syntax: glob
 out
 lib/**/*
 **/.svn
+.idea/workspace.*
