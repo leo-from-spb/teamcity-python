@@ -46,7 +46,7 @@
 <tr>
   <th>Script:</th>
   <td>
-    <props:selectProperty name="script.mode" id="script_mode" className="longField" onchange="BS.Python.updateScriptMode()">
+    <props:selectProperty name="python.script.mode" id="python_script_mode" className="longField" onchange="BS.Python.updateScriptMode()">
       <props:option value="file">File</props:option>
       <props:option value="code">Source code</props:option>
     </props:selectProperty>
@@ -55,9 +55,9 @@
 </tr>
 
 <tr id="python_script_file">
-  <th><label for="script.file.name">Python file:</label></th>
+  <th><label for="python.script.file.name">Python file:</label></th>
   <td>
-    <props:textProperty name="script.file.name" className="longField"/>
+    <props:textProperty name="python.script.file.name" className="longField"/>
     <span class="smallNote">Enter Python file path relative to checkout directory</span>
     <span class="error" id="error_script_file_name"></span>
   </td>
@@ -82,7 +82,7 @@
   {
      updateScriptMode : function()
      {
-       var val = $('script_mode').value;
+       var val = $('python_script_mode').value;
        if (val == 'file')
        {
            BS.Util.hide($('python_script_code'));

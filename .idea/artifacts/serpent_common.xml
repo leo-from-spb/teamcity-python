@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="serpent-common">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="serpent-common.jar">
+      <element id="module-output" name="serpent-common" />
+    </root>
+  </artifact>
+</component>
