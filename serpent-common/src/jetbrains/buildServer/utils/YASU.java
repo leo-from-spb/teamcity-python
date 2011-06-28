@@ -1,6 +1,7 @@
 package jetbrains.buildServer.utils;
 
-import com.sun.istack.internal.Nullable;
+
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Yet Another String Util
