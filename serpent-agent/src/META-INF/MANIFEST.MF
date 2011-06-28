@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: serpent-common.jar common-api.jar common-impl.jar openapi.jar util.jar log4j-1.2.12.jar trove4j.jar
+Main-Class: jetbrains.buildServer.python.hunter.SnakeHunterRunner

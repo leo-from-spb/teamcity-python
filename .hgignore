@@ -5,3 +5,4 @@ lib/**/*
 **/.svn
 .idea/workspace.*
 .idea/uiDesigner.*
+found.txt
