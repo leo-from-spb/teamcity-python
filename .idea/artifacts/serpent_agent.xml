@@ -4,6 +4,9 @@
     <root id="archive" name="serpent-agent.jar">
       <element id="module-output" name="serpent-agent" />
       <element id="dir-copy" path="$PROJECT_DIR$/serpent-agent/resources" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/serpent-agent/src/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>
