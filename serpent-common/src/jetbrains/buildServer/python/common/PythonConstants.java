@@ -1,4 +1,4 @@
-package jetbrains.buildServer.python;
+package jetbrains.buildServer.python.common;
 
 /**
  * Common python runner constants.

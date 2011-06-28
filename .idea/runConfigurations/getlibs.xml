@@ -8,7 +8,7 @@
     <option name="SDK_HOME" value="$PythonExe$" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="true" />
-    <module name="scripts" />
+    <module name="" />
     <option name="SCRIPT_NAME" value="scripts/getlibs.py" />
     <option name="PARAMETERS" value="" />
     <RunnerSettings RunnerId="Run" />

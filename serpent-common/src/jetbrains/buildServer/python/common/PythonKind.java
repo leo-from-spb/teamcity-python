@@ -1,4 +1,4 @@
-package jetbrains.buildServer.python.server;
+package jetbrains.buildServer.python.common;
 
 import java.util.Collections;
 import java.util.Map;
@@ -72,5 +72,6 @@ public enum PythonKind
             default: throw new IllegalArgumentException("Unknown python kind code: " + str);
         }
     }
+
 
 }

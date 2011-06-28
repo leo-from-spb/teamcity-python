@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-import static jetbrains.buildServer.python.PythonConstants.*;
+import static jetbrains.buildServer.python.common.PythonConstants.*;
 import static jetbrains.buildServer.utils.YAFU.*;
 import static jetbrains.buildServer.utils.YASU.*;
 

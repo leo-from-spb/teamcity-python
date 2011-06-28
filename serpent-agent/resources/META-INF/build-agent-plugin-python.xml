@@ -5,6 +5,7 @@
        default-autowire="constructor">
 
 
+  <bean class="jetbrains.buildServer.python.hunter.SnakeHunterRunner" init-method="hunt"/>
   <bean class="jetbrains.buildServer.python.agent.PythonServiceFactory"/>
 
 
