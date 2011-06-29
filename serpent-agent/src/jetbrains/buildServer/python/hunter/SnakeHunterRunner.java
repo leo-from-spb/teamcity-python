@@ -16,6 +16,10 @@ public class SnakeHunterRunner
     public static void main(String[] args)
             throws IOException
     {
+        for (String arg: args)
+            System.out.println("\targ: " + arg);
+        System.out.println("total " + args.length +" arguments.");
+
         SnakeHunterRunner shr = new SnakeHunterRunner();
         InstalledPythons pythons = shr.huntPythons();
 
