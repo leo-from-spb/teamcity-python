@@ -17,7 +17,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static jetbrains.buildServer.utils.YASU.*;
-import static jetbrains.buildServer.utils.YAFU.*;
 
 
 /**

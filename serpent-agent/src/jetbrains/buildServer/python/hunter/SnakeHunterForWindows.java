@@ -2,7 +2,6 @@ package jetbrains.buildServer.python.hunter;
 
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
-import jetbrains.buildServer.CommandLineExecutor;
 import jetbrains.buildServer.ExecResult;
 import jetbrains.buildServer.SimpleCommandLineProcessRunner;
 import jetbrains.buildServer.python.common.PythonKind;
@@ -11,12 +10,15 @@ import jetbrains.buildServer.util.Bitness;
 import jetbrains.buildServer.utils.WinRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import sun.plugin.javascript.navig.Array;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static jetbrains.buildServer.utils.YASU.*;
+
 
 /**
  * Python detector for Windows.
@@ -157,10 +159,43 @@ public class SnakeHunterForWindows extends SnakeHunter
         List<File> dirsToLook = new ArrayList<File>(this.runPaths);
         dirsToLook.addAll(runPaths);
 
+        lookForIronPythonLikeDirs(System.getenv("ProgramFiles"), dirsToLook);
+        lookForIronPythonLikeDirs(System.getenv("ProgramW6432"), dirsToLook);
+        lookForIronPythonLikeDirs(System.getenv("ProgramFiles(x86)"), dirsToLook);
+        lookForIronPythonLikeDirs("C:\\Program Files", dirsToLook);
+        lookForIronPythonLikeDirs("C:\\App", dirsToLook);
+        lookForIronPythonLikeDirs("D:\\App", dirsToLook);
+        lookForIronPythonLikeDirs("E:\\App", dirsToLook);
+
         Set<File> pretendents = new LinkedHashSet<File>(2);
         lookFiles(dirsToLook, new String[] {"ipy64.exe", "ipy.exe", "ipy32.exe"}, pretendents);
 
         examIronPythons(pretendents, pythons);
+    }
+
+
+    private void lookForIronPythonLikeDirs(final @NotNull String outerPath, @NotNull Collection<File> dirs)
+    {
+        String path = trimAndNull(outerPath);
+        if (path == null)
+            return;
+
+        File outer = new File(path);
+        if (!outer.exists() || !outer.isDirectory())
+            return;
+
+        FileFilter filter = new FileFilter()
+        {
+            @Override
+            public boolean accept(File pathname)
+            {
+                return pathname.isDirectory()
+                    && pathname.getName().toLowerCase().startsWith("ironpython");
+            }
+        };
+
+        for (File dir: outer.listFiles(filter))
+            dirs.add(dir);
     }
 
 
