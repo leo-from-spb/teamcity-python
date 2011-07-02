@@ -68,9 +68,9 @@ public final class WinRegistry
             throws Error
     {
         GeneralCommandLine cmdLine = new GeneralCommandLine();
-        cmdLine.addParameters(args);
         cmdLine.setExePath(ourRegToolExecutableName.getAbsolutePath());
         cmdLine.setPassParentEnvs(true);
+        cmdLine.addParameters(args);
 
         CommandLineExecutor executor = new CommandLineExecutor(cmdLine);
         ExecResult execResult;

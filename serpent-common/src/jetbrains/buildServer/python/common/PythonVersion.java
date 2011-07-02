@@ -52,7 +52,7 @@ public final class PythonVersion
     }
 
 
-    private PythonVersion(int major, int minor, @NotNull String string)
+    public PythonVersion(int major, int minor, @NotNull String string)
     {
         this.major = major;
         this.minor = minor;

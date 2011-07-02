@@ -3,7 +3,9 @@ package jetbrains.buildServer.python.hunter;
 
 import jetbrains.buildServer.python.common.PythonKind;
 import jetbrains.buildServer.python.common.PythonVersion;
+import jetbrains.buildServer.util.Bitness;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 
@@ -30,6 +32,13 @@ public final class InstalledPython
     public final PythonVersion version;
 
     /**
+     * Python bitness.
+     * Or null if could not determine.
+     */
+    @Nullable
+    public final Bitness bitness;
+
+    /**
      * File to execute.
      */
     @NotNull
@@ -37,12 +46,14 @@ public final class InstalledPython
 
 
 
-    public InstalledPython(final @NotNull PythonKind kind,
-                           final @NotNull PythonVersion version,
-                           final @NotNull File executable)
+    public InstalledPython(final @NotNull  PythonKind kind,
+                           final @NotNull  PythonVersion version,
+                           final @Nullable Bitness bitness,
+                           final @NotNull  File executable)
     {
         this.kind = kind;
         this.version = version;
+        this.bitness = bitness;
         this.executable = executable;
     }
 
@@ -91,6 +102,7 @@ public final class InstalledPython
     @Override
     public String toString()
     {
-        return kind.code + " " + version + " " + executable;
+        String bitnessStr = bitness != null ? Byte.toString(bitness.value) : "??";
+        return kind.code + " " + version + " x"+bitnessStr + " " + executable;
     }
 }

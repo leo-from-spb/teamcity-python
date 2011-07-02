@@ -1,5 +1,9 @@
 package jetbrains.buildServer.python.hunter;
 
+import com.intellij.execution.ExecutionException;
+import com.intellij.execution.configurations.GeneralCommandLine;
+import jetbrains.buildServer.CommandLineExecutor;
+import jetbrains.buildServer.ExecResult;
 import jetbrains.buildServer.python.common.PythonKind;
 import jetbrains.buildServer.python.common.PythonVersion;
 import jetbrains.buildServer.util.Bitness;
@@ -18,8 +22,6 @@ import java.util.regex.Pattern;
 public class SnakeHunterForWindows extends SnakeHunter
 {
 
-    static final String ourClassicPythonRegPath = "HKLM\\SOFTWARE\\Python";
-
     private final WinRegistry winReg = new WinRegistry();
 
 
@@ -32,22 +34,31 @@ public class SnakeHunterForWindows extends SnakeHunter
         huntIronPythons(pythons);
         huntJythons(pythons);
 
-        return examPythons(pythons);
+        return pythons;
     }
 
 
-    private void huntClassicPythons(InstalledPythons pythons)
+    //// CLASSIC PYTHONS HUNTING \\\\\
+
+
+    static final String ourClassicPythonRegPath = "HKLM\\SOFTWARE\\Python";
+
+
+    private void huntClassicPythons(@NotNull InstalledPythons pythons)
     {
         List<File> dirsFromRegistry = peekClassicPythonsFromWinRegistry();
         Set<File> dirsToLook = new LinkedHashSet<File>();
         dirsToLook.addAll(dirsFromRegistry);
         dirsToLook.addAll(runPaths);
 
-        lookFiles(dirsToLook, new String[] {"python.exe"}, PythonKind.Classic, pythons);
+        Set<File> pretendents = new LinkedHashSet<File>(dirsFromRegistry.size() + 2);
+        lookFiles(dirsToLook, new String[] {"python.exe"}, pretendents);
+
+        examClassicPythons(pretendents, pythons);
     }
 
 
-    private static final Pattern ourClassicPythonRegKeyPatthern =
+    private static final Pattern ourClassicPythonRegKeyPattern =
             Pattern.compile("HK[A-Z_]*\\\\SOFTWARE\\\\Python\\\\PythonCore\\\\.*\\\\InstallPath", Pattern.CASE_INSENSITIVE);
 
     private List<File> peekClassicPythonsFromWinRegistry()
@@ -64,7 +75,7 @@ public class SnakeHunterForWindows extends SnakeHunter
                         @Override
                         public void handleKey(@NotNull String keyName)
                         {
-                            Matcher m = ourClassicPythonRegKeyPatthern.matcher(keyName);
+                            Matcher m = ourClassicPythonRegKeyPattern.matcher(keyName);
                             keyToProcess = m.matches();
                         }
 
@@ -94,44 +105,145 @@ public class SnakeHunterForWindows extends SnakeHunter
     }
 
 
+    private static final Pattern ourClassicPythonVersionPattern =
+            Pattern.compile("Python\\s+((\\d+)\\.(\\d+))", Pattern.CASE_INSENSITIVE);
 
-    private void huntIronPythons(InstalledPythons pythons)
+
+    private void examClassicPythons(Collection<File> pretendents, InstalledPythons pythons)
     {
-        List<File> dirsToLook = new ArrayList<File>(this.runPaths);
+        for (File pretendent: pretendents)
+        {
+            try
+            {
+                ExecResult result =
+                        runExeFile(pretendent, "-V");
+                String output = result.getStdout() + result.getStderr();
+                Matcher m = ourClassicPythonVersionPattern.matcher(output);
+                if (m.find())
+                {
+                    String majorStr = m.group(2);
+                    String minorStr = m.group(3);
+                    int major = Integer.parseInt(majorStr);
+                    int minor = Integer.parseInt(minorStr);
+                    PythonVersion version = new PythonVersion(major, minor, m.group(1));
+                    Bitness bitness = examClassicPythonsBitness(pretendent, version);
+                    InstalledPython python = new InstalledPython(PythonKind.Classic, version, bitness, pretendent);
+                    pythons.addPython(python);
+                }
+            }
+            catch (ExecutionException ee)
+            {
+                System.err.println("Failed to try " + pretendent.getAbsolutePath() + ": " + ee.getMessage());
+            }
+        }
+    }
 
-        lookFiles(dirsToLook, new String[] {"ipy64.exe", "ipy.exe", "ipy32.exe"}, PythonKind.Iron, pythons);
+    private Bitness examClassicPythonsBitness(File pythonExeFile, PythonVersion version)
+    {
+        // TODO implement examClassicPythonsBitness()
+        return null;
     }
 
 
-    private void huntJythons(InstalledPythons pythons)
+
+    //// IRON PYTHONS HUNTING \\\\\
+
+
+    private void huntIronPythons(@NotNull InstalledPythons pythons)
+    {
+        List<File> dirsToLook = new ArrayList<File>(this.runPaths);
+        dirsToLook.addAll(runPaths);
+
+        Set<File> pretendents = new LinkedHashSet<File>(2);
+        lookFiles(dirsToLook, new String[] {"ipy64.exe", "ipy.exe", "ipy32.exe"}, pretendents);
+
+        examIronPythons(pretendents, pythons);
+    }
+
+
+    private static final Pattern ourIronPythonVersionPattern =
+            Pattern.compile("(Iron)?Python(Context)?\\s+((\\d+)\\.(\\d+)(\\.\\d+)*)", Pattern.CASE_INSENSITIVE);
+
+
+    private void examIronPythons(Collection<File> pretendents, InstalledPythons pythons)
+    {
+        for (File pretendent: pretendents)
+        {
+            try
+            {
+                ExecResult result =
+                        runExeFile(pretendent, "-V");
+                String output = result.getStdout() + result.getStderr();
+                Matcher m = ourIronPythonVersionPattern.matcher(output);
+                if (m.find())
+                {
+                    String majorStr = m.group(4);
+                    String minorStr = m.group(5);
+                    int major = Integer.parseInt(majorStr);
+                    int minor = Integer.parseInt(minorStr);
+                    PythonVersion version = new PythonVersion(major, minor, m.group(3));
+                    Bitness bitness = examIronPythonsBitness(pretendent, version);
+                    InstalledPython python = new InstalledPython(PythonKind.Iron, version, bitness, pretendent);
+                    pythons.addPython(python);
+                }
+            }
+            catch (ExecutionException ee)
+            {
+                System.err.println("Failed to try " + pretendent.getAbsolutePath() + ": " + ee.getMessage());
+            }
+        }
+    }
+
+    private Bitness examIronPythonsBitness(File pythonExe, PythonVersion version)
+    {
+        // TODO implmement SnakeHunterForWindows.examIronPythonsBitness
+        return null;
+    }
+
+
+    //// JYTHONS HUNTING \\\\\
+
+
+    private void huntJythons(@NotNull InstalledPythons pythons)
     {
         // TODO implmement SnakeHunterForWindows.huntJythons
     }
 
 
-    private void lookFiles(Collection<File> dirsToLook, String[] exeNames, PythonKind kind, InstalledPythons foundPythons)
+
+    //// COMMON HUNTING ROUTINES \\\\
+
+
+    private void lookFiles(Collection<File> dirsToLook, String[] fileNames, Collection<File> foundFiles)
     {
         for (File dir: dirsToLook)
         {
-            for (String exeName: exeNames)
+            for (String exeName: fileNames)
             {
                 File exeFile = new File(dir, exeName);
                 if (exeFile.exists() && exeFile.canExecute())
                 {
-                    InstalledPython pretendent =
-                            new InstalledPython(kind, PythonVersion.zero, exeFile);
-                    foundPythons.addPython(pretendent);
+                    foundFiles.add(exeFile);
                 }
             }
         }
     }
 
 
-    private InstalledPythons examPythons(InstalledPythons pretendents)
+    private ExecResult runExeFile(File exeFile, String... args)
+            throws ExecutionException
     {
-        // TODO implmement SnakeHunterForWindows.examPythons
-        return pretendents;
+        GeneralCommandLine cmdLine = new GeneralCommandLine();
+        cmdLine.setExePath(exeFile.getAbsolutePath());
+        cmdLine.setPassParentEnvs(true);
+        cmdLine.addParameters(args);
+
+        CommandLineExecutor executor = new CommandLineExecutor(cmdLine);
+        ExecResult execResult = executor.runProcess();
+        return execResult;
     }
+
+
 
 
 }
