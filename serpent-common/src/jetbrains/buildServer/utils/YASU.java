@@ -1,6 +1,7 @@
 package jetbrains.buildServer.utils;
 
 
+import jetbrains.buildServer.util.StringUtil;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -23,6 +24,20 @@ public final class YASU
 
         return trimmedStr;
     }
+
+
+    @Nullable
+    public static String trimRightAndNull(final String str)
+    {
+        String rtrimmedStr = StringUtil.trimRight(str);
+        if (rtrimmedStr == null || rtrimmedStr.length() == 0)
+            return null;
+
+        return rtrimmedStr;
+    }
+
+
+
 
 
     public static char firstChar(final @Nullable String str)

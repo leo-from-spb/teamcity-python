@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Trove4">
+    <CLASSES>
+      <root url="jar://$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/trove4j.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="http://trove4j.sourceforge.net/javadocs/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

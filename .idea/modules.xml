@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/scripts/scripts.iml" filepath="$PROJECT_DIR$/scripts/scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/serpent-agent/serpent-agent.iml" filepath="$PROJECT_DIR$/serpent-agent/serpent-agent.iml" />
       <module fileurl="file://$PROJECT_DIR$/serpent-common/serpent-common.iml" filepath="$PROJECT_DIR$/serpent-common/serpent-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serpent-common-test/serpent-common-test.iml" filepath="$PROJECT_DIR$/serpent-common-test/serpent-common-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/serpent-server/serpent-server.iml" filepath="$PROJECT_DIR$/serpent-server/serpent-server.iml" />
     </modules>
   </component>
