@@ -4,11 +4,14 @@ import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import jetbrains.buildServer.CommandLineExecutor;
 import jetbrains.buildServer.ExecResult;
+import jetbrains.buildServer.SimpleCommandLineProcessRunner;
 import jetbrains.buildServer.python.common.PythonKind;
 import jetbrains.buildServer.python.common.PythonVersion;
 import jetbrains.buildServer.util.Bitness;
 import jetbrains.buildServer.utils.WinRegistry;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import sun.plugin.javascript.navig.Array;
 
 import java.io.File;
 import java.util.*;
@@ -116,7 +119,7 @@ public class SnakeHunterForWindows extends SnakeHunter
             try
             {
                 ExecResult result =
-                        runExeFile(pretendent, "-V");
+                        runExeFile(pretendent, Arrays.asList("-V"), null);
                 String output = result.getStdout() + result.getStderr();
                 Matcher m = ourClassicPythonVersionPattern.matcher(output);
                 if (m.find())
@@ -161,8 +164,18 @@ public class SnakeHunterForWindows extends SnakeHunter
     }
 
 
+    private static final String ourIronExamText =
+            "from System import IntPtr                     \n" +
+            "print ('bitness='+(IntPtr.Size*8).ToString()) \n" +
+            "\u001A";
+
     private static final Pattern ourIronPythonVersionPattern =
-            Pattern.compile("(Iron)?Python(Context)?\\s+((\\d+)\\.(\\d+)(\\.\\d+)*)", Pattern.CASE_INSENSITIVE);
+            Pattern.compile(
+                    "(Iron)?Python(Context)?\\s+((\\d+)\\.(\\d+)(\\.\\d+)*(\\s*\\([\\d\\.]+\\))?)",
+                    Pattern.CASE_INSENSITIVE);
+
+    private static final Pattern ourIronPythonBitnessPattern =
+            Pattern.compile("bitness\\s*=\\s*(32|64)", Pattern.CASE_INSENSITIVE);
 
 
     private void examIronPythons(Collection<File> pretendents, InstalledPythons pythons)
@@ -172,20 +185,32 @@ public class SnakeHunterForWindows extends SnakeHunter
             try
             {
                 ExecResult result =
-                        runExeFile(pretendent, "-V");
+                        runExeFile(pretendent, Arrays.asList("-i"), ourIronExamText);
                 String output = result.getStdout() + result.getStderr();
-                Matcher m = ourIronPythonVersionPattern.matcher(output);
-                if (m.find())
-                {
-                    String majorStr = m.group(4);
-                    String minorStr = m.group(5);
-                    int major = Integer.parseInt(majorStr);
-                    int minor = Integer.parseInt(minorStr);
-                    PythonVersion version = new PythonVersion(major, minor, m.group(3));
-                    Bitness bitness = examIronPythonsBitness(pretendent, version);
-                    InstalledPython python = new InstalledPython(PythonKind.Iron, version, bitness, pretendent);
-                    pythons.addPython(python);
-                }
+
+                Matcher m1 = ourIronPythonVersionPattern.matcher(output);
+                boolean ok1 = m1.find();
+                if (!ok1)
+                    continue;
+
+                String majorStr = m1.group(4);
+                String minorStr = m1.group(5);
+                int major = Integer.parseInt(majorStr);
+                int minor = Integer.parseInt(minorStr);
+                String versionStr = m1.group(3);
+                PythonVersion version = new PythonVersion(major, minor, versionStr);
+
+                Bitness bitness = null;
+                Matcher m2 = ourIronPythonBitnessPattern.matcher(output);
+                boolean ok2 = m2.find();
+                if (ok2)
+                    if (m2.group(1).equals("64"))
+                        bitness = Bitness.BIT64;
+                    else
+                        bitness = Bitness.BIT32;
+
+                InstalledPython python = new InstalledPython(PythonKind.Iron, version, bitness, pretendent);
+                pythons.addPython(python);
             }
             catch (ExecutionException ee)
             {
@@ -194,11 +219,6 @@ public class SnakeHunterForWindows extends SnakeHunter
         }
     }
 
-    private Bitness examIronPythonsBitness(File pythonExe, PythonVersion version)
-    {
-        // TODO implmement SnakeHunterForWindows.examIronPythonsBitness
-        return null;
-    }
 
 
     //// JYTHONS HUNTING \\\\\
@@ -230,17 +250,31 @@ public class SnakeHunterForWindows extends SnakeHunter
     }
 
 
-    private ExecResult runExeFile(File exeFile, String... args)
+    private ExecResult runExeFile(final @NotNull File exeFile,
+                                  final @Nullable List<String> args,
+                                  final @Nullable String inputText)
             throws ExecutionException
     {
         GeneralCommandLine cmdLine = new GeneralCommandLine();
         cmdLine.setExePath(exeFile.getAbsolutePath());
         cmdLine.setPassParentEnvs(true);
-        cmdLine.addParameters(args);
+        if (args != null)
+            cmdLine.addParameters(args);
 
-        CommandLineExecutor executor = new CommandLineExecutor(cmdLine);
-        ExecResult execResult = executor.runProcess();
-        return execResult;
+        byte[] input = null;
+        if (inputText != null)
+            input = inputText.getBytes();
+
+        try
+        {
+            ExecResult execResult
+                = SimpleCommandLineProcessRunner.runCommand(cmdLine, input);
+            return execResult;
+        }
+        catch (Exception e)
+        {
+            throw new ExecutionException(e.getMessage(), e);
+        }
     }
 
 
