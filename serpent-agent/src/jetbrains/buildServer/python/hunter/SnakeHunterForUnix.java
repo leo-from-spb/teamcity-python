@@ -22,8 +22,9 @@ public class SnakeHunterForUnix extends SnakeHunter
 
         if (thePythonHome != null)
             dirsToLook.add(new File(thePythonHome));
-        else
-            dirsToLook.add(new File("/usr/bin"));
+
+        dirsToLook.add(new File("/usr/lib/ironpython"));
+        dirsToLook.add(new File("/usr/bin"));
     }
 
 
@@ -48,7 +49,7 @@ public class SnakeHunterForUnix extends SnakeHunter
     @Override
     protected String[] getIronPythonExeFiles()
     {
-        return new String[]{"ipy"};
+        return new String[]{"ipy.exe", "ipy"};
     }
 
 }
