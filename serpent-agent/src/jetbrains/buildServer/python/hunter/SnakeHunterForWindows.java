@@ -151,7 +151,7 @@ public class SnakeHunterForWindows extends SnakeHunter
     }
 
 
-    private void lookForIronPythonLikeDirs(final @NotNull String outerPath, @NotNull Collection<File> dirs)
+    private void lookForIronPythonLikeDirs(final @Nullable String outerPath, @NotNull Collection<File> dirs)
     {
         String path = trimAndNull(outerPath);
         if (path == null)
