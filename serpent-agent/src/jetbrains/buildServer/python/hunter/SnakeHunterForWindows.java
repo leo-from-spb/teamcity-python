@@ -110,44 +110,21 @@ public class SnakeHunterForWindows extends SnakeHunter
     }
 
 
+    private static final String ourClassicExamText =
+            "import platform                         \n" +
+            "(bitness,oss)=platform.architecture()   \n" +
+            "print('bitness='+bitness)               \n" +
+            "\u001A";
+
     private static final Pattern ourClassicPythonVersionPattern =
             Pattern.compile("Python\\s+((\\d+)\\.(\\d+))", Pattern.CASE_INSENSITIVE);
 
 
     private void examClassicPythons(Collection<File> pretendents, InstalledPythons pythons)
     {
-        for (File pretendent: pretendents)
-        {
-            try
-            {
-                ExecResult result =
-                        runExeFile(pretendent, Arrays.asList("-V"), null);
-                String output = result.getStdout() + result.getStderr();
-                Matcher m = ourClassicPythonVersionPattern.matcher(output);
-                if (m.find())
-                {
-                    String majorStr = m.group(2);
-                    String minorStr = m.group(3);
-                    int major = Integer.parseInt(majorStr);
-                    int minor = Integer.parseInt(minorStr);
-                    PythonVersion version = new PythonVersion(major, minor, m.group(1));
-                    Bitness bitness = examClassicPythonsBitness(pretendent, version);
-                    InstalledPython python = new InstalledPython(PythonKind.Classic, version, bitness, pretendent);
-                    pythons.addPython(python);
-                }
-            }
-            catch (ExecutionException ee)
-            {
-                System.err.println("Failed to try " + pretendent.getAbsolutePath() + ": " + ee.getMessage());
-            }
-        }
+        examPythons(pretendents, PythonKind.Classic, ourClassicExamText, ourClassicPythonVersionPattern, 2, 3, 1, pythons);
     }
 
-    private Bitness examClassicPythonsBitness(File pythonExeFile, PythonVersion version)
-    {
-        // TODO implement examClassicPythonsBitness()
-        return null;
-    }
 
 
 
@@ -209,49 +186,9 @@ public class SnakeHunterForWindows extends SnakeHunter
                     "(Iron)?Python(Context)?\\s+((\\d+)\\.(\\d+)(\\.\\d+)*(\\s*\\([\\d\\.]+\\))?)",
                     Pattern.CASE_INSENSITIVE);
 
-    private static final Pattern ourIronPythonBitnessPattern =
-            Pattern.compile("bitness\\s*=\\s*(32|64)", Pattern.CASE_INSENSITIVE);
-
-
     private void examIronPythons(Collection<File> pretendents, InstalledPythons pythons)
     {
-        for (File pretendent: pretendents)
-        {
-            try
-            {
-                ExecResult result =
-                        runExeFile(pretendent, Arrays.asList("-i"), ourIronExamText);
-                String output = result.getStdout() + result.getStderr();
-
-                Matcher m1 = ourIronPythonVersionPattern.matcher(output);
-                boolean ok1 = m1.find();
-                if (!ok1)
-                    continue;
-
-                String majorStr = m1.group(4);
-                String minorStr = m1.group(5);
-                int major = Integer.parseInt(majorStr);
-                int minor = Integer.parseInt(minorStr);
-                String versionStr = m1.group(3);
-                PythonVersion version = new PythonVersion(major, minor, versionStr);
-
-                Bitness bitness = null;
-                Matcher m2 = ourIronPythonBitnessPattern.matcher(output);
-                boolean ok2 = m2.find();
-                if (ok2)
-                    if (m2.group(1).equals("64"))
-                        bitness = Bitness.BIT64;
-                    else
-                        bitness = Bitness.BIT32;
-
-                InstalledPython python = new InstalledPython(PythonKind.Iron, version, bitness, pretendent);
-                pythons.addPython(python);
-            }
-            catch (ExecutionException ee)
-            {
-                System.err.println("Failed to try " + pretendent.getAbsolutePath() + ": " + ee.getMessage());
-            }
-        }
+        examPythons(pretendents, PythonKind.Iron, ourIronExamText, ourIronPythonVersionPattern, 4, 5, 3, pythons);
     }
 
 
@@ -312,6 +249,59 @@ public class SnakeHunterForWindows extends SnakeHunter
         }
     }
 
+
+
+    private static final Pattern ourPythonBitnessPattern =
+            Pattern.compile("bitness\\s*=\\s*(32|64)", Pattern.CASE_INSENSITIVE);
+
+
+    private void examPythons(final @NotNull Collection<File> pretendents,
+                             final @NotNull PythonKind pythonKind,
+                             final @NotNull String examText,
+                             final @NotNull Pattern versionPattern,
+                             final int versionPatternMajorGroup,
+                             final int versionPatternMinorGroup,
+                             final int versionPatternVersionStringGroup,
+                             final @NotNull InstalledPythons pythons)
+    {
+        for (File pretendent: pretendents)
+        {
+            try
+            {
+                ExecResult result =
+                        runExeFile(pretendent, Arrays.asList("-i"), examText);
+                String output = result.getStdout() + result.getStderr();
+
+                Matcher m1 = versionPattern.matcher(output);
+                boolean ok1 = m1.find();
+                if (!ok1)
+                    continue;
+
+                String majorStr = m1.group(versionPatternMajorGroup);
+                String minorStr = m1.group(versionPatternMinorGroup);
+                int major = Integer.parseInt(majorStr);
+                int minor = Integer.parseInt(minorStr);
+                String versionStr = m1.group(versionPatternVersionStringGroup);
+                PythonVersion version = new PythonVersion(major, minor, versionStr);
+
+                Bitness bitness = null;
+                Matcher m2 = ourPythonBitnessPattern.matcher(output);
+                boolean ok2 = m2.find();
+                if (ok2)
+                    if (m2.group(1).equals("64"))
+                        bitness = Bitness.BIT64;
+                    else
+                        bitness = Bitness.BIT32;
+
+                InstalledPython python = new InstalledPython(pythonKind, version, bitness, pretendent);
+                pythons.addPython(python);
+            }
+            catch (ExecutionException ee)
+            {
+                System.err.println("Failed to try " + pretendent.getAbsolutePath() + ": " + ee.getMessage());
+            }
+        }
+    }
 
 
 
