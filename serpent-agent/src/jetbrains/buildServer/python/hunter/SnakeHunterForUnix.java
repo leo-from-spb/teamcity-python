@@ -22,9 +22,8 @@ public class SnakeHunterForUnix extends SnakeHunter
 
         if (thePythonHome != null)
             dirsToLook.add(new File(thePythonHome));
-
-        dirsToLook.add(new File("/usr/lib/ironpython"));
-        dirsToLook.add(new File("/usr/bin"));
+        else
+            dirsToLook.add(new File("/usr/bin"));
     }
 
 
@@ -43,6 +42,7 @@ public class SnakeHunterForUnix extends SnakeHunter
     protected void collectDirsToLookForIronPython(Set<File> dirsToLook)
     {
         dirsToLook.addAll(runPaths);
+        dirsToLook.add(new File("/usr/lib/ironpython"));
     }
 
 
