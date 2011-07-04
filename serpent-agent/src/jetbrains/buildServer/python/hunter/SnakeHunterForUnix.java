@@ -7,7 +7,7 @@ import java.util.Set;
  * Python detector for Unix-like OS.
  * @author Leonid Bushuev from JetBrains
  */
-public class SnakeHunterForUnix extends SnakeHunter
+class SnakeHunterForUnix extends SnakeHunter
 {
 
     //// CLASSIC PYTHONS HUNTING \\\\\

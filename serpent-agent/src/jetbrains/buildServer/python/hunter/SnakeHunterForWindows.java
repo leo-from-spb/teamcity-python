@@ -18,7 +18,7 @@ import static jetbrains.buildServer.utils.YASU.*;
  * Python detector for Windows.
  * @author Leonid Bushuev from JetBrains
  */
-public class SnakeHunterForWindows extends SnakeHunter
+class SnakeHunterForWindows extends SnakeHunter
 {
 
     private final WinRegistry winReg = new WinRegistry();

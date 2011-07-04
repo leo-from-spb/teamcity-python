@@ -16,9 +16,17 @@ public class SnakeHunterRunner
     public static void main(String[] args)
             throws IOException
     {
-        SnakeHunterRunner shr = new SnakeHunterRunner();
-        InstalledPythons pythons = shr.huntPythons();
+        SnakeHunterFactory factory = new SnakeHunterFactory();
+        SnakeHunter hunter = factory.createSnakeHunter();
 
+        InstalledPythons pythons = hunter.hunt();
+
+        printResults(args, pythons);
+    }
+
+
+    private static void printResults(String[] args, InstalledPythons pythons) throws IOException
+    {
         String pythonsText = pythons.found() ? pythons.toString() : "No Python installations found.";
 
         if (args.length == 1)
@@ -31,22 +39,6 @@ public class SnakeHunterRunner
         {
             System.out.println(pythonsText);
         }
-    }
-
-
-    public void hunt()
-    {
-        huntPythons();
-    }
-
-
-    public InstalledPythons huntPythons()
-    {
-        final SnakeHunter hunter = SystemInfo.isWindows ? new SnakeHunterForWindows()
-                                 : SystemInfo.isMac ? new SnakeHunterForMac()
-                                 : new SnakeHunterForUnix();
-        hunter.init();
-        return hunter.hunt();
     }
 
 }

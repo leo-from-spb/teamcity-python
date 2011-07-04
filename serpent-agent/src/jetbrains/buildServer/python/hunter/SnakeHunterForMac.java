@@ -7,7 +7,7 @@ import java.util.Set;
  * Python detector for MacOS.
  * @author Leonid Bushuev from JetBrains
  */
-public class SnakeHunterForMac extends SnakeHunter
+class SnakeHunterForMac extends SnakeHunter
 {
     //// CLASSIC PYTHONS HUNTING \\\\\
 

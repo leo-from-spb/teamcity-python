@@ -5,8 +5,16 @@
        default-autowire="constructor">
 
 
-  <bean class="jetbrains.buildServer.python.hunter.SnakeHunterRunner" init-method="hunt"/>
-  <bean class="jetbrains.buildServer.python.agent.PythonServiceFactory"/>
+    <bean id="snakeHunterFactory"
+          class="jetbrains.buildServer.python.hunter.SnakeHunterFactory"/>
+
+    <bean id="snakeHunter"
+          class="jetbrains.buildServer.python.hunter.SnakeHunter"
+          factory-bean="snakeHunterFactory"
+          factory-method="createSnakeHunter" />
+
+    <bean id="pythonServiceFactory"
+          class="jetbrains.buildServer.python.agent.PythonServiceFactory"/>
 
 
 </beans>
