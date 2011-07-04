@@ -164,6 +164,18 @@ public abstract class SnakeHunter
 
 
 
+    //// SELECT PREFERRED INSTALLATIOND \\\\
+
+
+    public Map<String,String> choosePythonInstallations(final @NotNull InstalledPythons installedPythons)
+    {
+        // installed pythons are ordered - better pythons (more fat and delicious) are at the end of the list.
+        // for each variable, we're selecting the last matched one.
+        return null; // TODO implement
+    }
+
+
+
     //// COMMON HUNTING ROUTINES \\\\
 
 
@@ -209,6 +221,8 @@ public abstract class SnakeHunter
     }
 
 
+    private int sequentialOrder = 0;
+
     private static final Pattern ourPythonBitnessPattern =
             Pattern.compile("bitness\\s*=\\s*(32|64)", Pattern.CASE_INSENSITIVE);
 
@@ -250,7 +264,8 @@ public abstract class SnakeHunter
                     else
                         bitness = Bitness.BIT32;
 
-                InstalledPython python = new InstalledPython(pythonKind, version, bitness, pretendent);
+                int foundOrder = ++sequentialOrder;
+                InstalledPython python = new InstalledPython(pythonKind, version, bitness, pretendent, foundOrder);
                 pythons.addPython(python);
             }
             catch (ExecutionException ee)

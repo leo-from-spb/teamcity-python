@@ -44,17 +44,25 @@ public final class InstalledPython
     @NotNull
     public final File executable;
 
+    /**
+     * Sequential order in which this installation has been found.
+     * Started with 1.
+     */
+    public final int foundOrder;
 
 
-    public InstalledPython(final @NotNull  PythonKind kind,
-                           final @NotNull  PythonVersion version,
+
+    public InstalledPython(final @NotNull PythonKind kind,
+                           final @NotNull PythonVersion version,
                            final @Nullable Bitness bitness,
-                           final @NotNull  File executable)
+                           final @NotNull File executable,
+                           final int foundOrder)
     {
         this.kind = kind;
         this.version = version;
         this.bitness = bitness;
         this.executable = executable;
+        this.foundOrder = foundOrder;
     }
 
 
@@ -71,8 +79,20 @@ public final class InstalledPython
         if (z == 0)
             z = this.version.compareTo(that.version);
         if (z == 0)
+            z = compareBitnesses(this.bitness, that.bitness);
+        if (z == 0)
             z = this.executable.compareTo(that.executable);
+        if (z == 0)
+            z = (-this.foundOrder) - (-that.foundOrder); // please don't "simplify" minuses
         return z;
+    }
+
+
+    private static int compareBitnesses(final @Nullable Bitness bitness1, final @Nullable Bitness bitness2)
+    {
+        byte v1 = bitness1 != null ? bitness1.value : (byte) -1;
+        byte v2 = bitness2 != null ? bitness2.value : (byte) -1;
+        return v1 - v2;
     }
 
 
@@ -84,8 +104,10 @@ public final class InstalledPython
 
         InstalledPython that = (InstalledPython) o;
 
-        if (!executable.equals(that.executable)) return false;
         if (kind != that.kind) return false;
+        if (bitness != that.bitness) return false;
+        if (foundOrder != that.foundOrder) return false;
+        if (!executable.equals(that.executable)) return false;
         if (!version.equals(that.version)) return false;
 
         return true;

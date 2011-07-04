@@ -32,12 +32,24 @@ public final class InstalledPythons
     }
 
 
+    public InstalledPython[] toArray()
+    {
+        return pythons.toArray(new InstalledPython[pythons.size()]);
+    }
+
+
     @Override
     public String toString()
     {
+        return toString("");
+    }
+
+
+    public String toString(String linePrefix)
+    {
         StringBuilder buf = new StringBuilder();
         for (InstalledPython python: pythons)
-            buf.append(python.toString()).append('\n');
+            buf.append(linePrefix).append(python.toString()).append('\n');
         return buf.toString();
     }
 }
