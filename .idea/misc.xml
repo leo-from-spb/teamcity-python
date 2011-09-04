@@ -31,10 +31,6 @@
       <SplitterProportionsDataImpl />
     </splitter-proportions>
   </component>
-  <component name="Git.Settings">
-    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
-    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
-  </component>
   <component name="GlobalLibrariesConfigurable.UI">
     <splitter-proportions>
       <SplitterProportionsDataImpl>

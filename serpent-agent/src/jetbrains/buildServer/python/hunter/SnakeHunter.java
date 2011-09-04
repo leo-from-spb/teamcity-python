@@ -140,7 +140,7 @@ public abstract class SnakeHunter
     private static final String ourIronExamText =
             "from System import IntPtr                     \n" +
             "print ('bitness='+(IntPtr.Size*8).ToString()) \n" +
-            "\u001A";
+            "\u001A\n";
 
     private static final Pattern ourIronPythonVersionPattern =
             Pattern.compile(

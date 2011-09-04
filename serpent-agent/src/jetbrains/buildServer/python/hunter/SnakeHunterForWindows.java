@@ -52,45 +52,7 @@ class SnakeHunterForWindows extends SnakeHunter
 
     private List<File> peekClassicPythonsFromWinRegistry()
     {
-        final List<File> dirsWithPythons = new ArrayList<File>(4);
-
-        for (Bitness bitness: Arrays.asList(null, Bitness.BIT64, Bitness.BIT32))
-        {
-            WinRegistry.DumpConsumer consumer =
-                    new WinRegistry.DumpConsumer()
-                    {
-                        boolean keyToProcess = false;
-
-                        @Override
-                        public void handleKey(@NotNull String keyName)
-                        {
-                            Matcher m = ourClassicPythonRegKeyPattern.matcher(keyName);
-                            keyToProcess = m.matches();
-                        }
-
-                        @Override
-                        public void handleValue(@NotNull String entryName, @NotNull String entryValue)
-                        {
-                            if (keyToProcess && entryName.equals(""))
-                            {
-                                File file = new File(entryValue);
-                                dirsWithPythons.add(file);
-                            }
-                        }
-                    };
-
-            try
-            {
-                winReg.dump(ourClassicPythonRegPath, bitness, consumer);
-            }
-            catch (WinRegistry.Error wre)
-            {
-                String bitnessStr = bitness == null ? "default" : Byte.toString(bitness.value);
-                System.err.println("WinRegistry ("+ ourClassicPythonRegPath +"), bitness: " + bitnessStr + ":\n" + wre.getMessage());
-            }
-        }
-
-        return dirsWithPythons;
+        return peekPythonsFromWinRegistry(ourClassicPythonRegPath, ourClassicPythonRegKeyPattern);
     }
 
 
@@ -98,9 +60,17 @@ class SnakeHunterForWindows extends SnakeHunter
     //// IRON PYTHONS HUNTING \\\\\
 
 
+    private static final String ourIronPythonRegPath = "HKLM\\SOFTWARE\\IronPython";
+
+    private static final Pattern ourIronPythonRegKeyPattern =
+            Pattern.compile("HK[A-Z_]*\\\\SOFTWARE\\\\IronPython\\\\.*\\\\InstallPath", Pattern.CASE_INSENSITIVE);
+
+
     @Override
     protected void collectDirsToLookForIronPython(Set<File> dirsToLook)
     {
+        List<File> dirsFromRegistry = peekIronPythonsFromWinRegistry();
+        dirsToLook.addAll(dirsFromRegistry);
         dirsToLook.addAll(runPaths);
 
         lookForIronPythonLikeDirs(System.getenv("ProgramFiles"), dirsToLook);
@@ -144,9 +114,62 @@ class SnakeHunterForWindows extends SnakeHunter
     }
 
 
+    private List<File> peekIronPythonsFromWinRegistry()
+    {
+        return peekPythonsFromWinRegistry(ourIronPythonRegPath, ourIronPythonRegKeyPattern);
+    }
 
-    //// JYTHONS HUNTING \\\\\
 
+
+    //// JYTHONS HUNTING \\\\
+
+
+
+    //// COMMON ROUTINES \\\\
+
+
+    private List<File> peekPythonsFromWinRegistry(final String regPath, final Pattern regKeyPattern)
+    {
+        final List<File> dirsWithPythons = new ArrayList<File>(4);
+
+        for (Bitness bitness: Arrays.asList(null, Bitness.BIT64, Bitness.BIT32))
+        {
+            WinRegistry.DumpConsumer consumer =
+                    new WinRegistry.DumpConsumer()
+                    {
+                        boolean keyToProcess = false;
+
+                        @Override
+                        public void handleKey(@NotNull String keyName)
+                        {
+                            Matcher m = regKeyPattern.matcher(keyName);
+                            keyToProcess = m.matches();
+                        }
+
+                        @Override
+                        public void handleValue(@NotNull String entryName, @NotNull String entryValue)
+                        {
+                            if (keyToProcess && entryName.equals(""))
+                            {
+                                File file = new File(entryValue);
+                                dirsWithPythons.add(file);
+                            }
+                        }
+                    };
+
+            try
+            {
+                winReg.dump(regPath, bitness, consumer);
+            }
+            catch (WinRegistry.Error wre)
+            {
+                String bitnessStr = bitness == null ? "default" : Byte.toString(bitness.value);
+                System.err.println("WinRegistry ("+ ourClassicPythonRegPath +"), bitness: " + bitnessStr + ":\n" + wre.getMessage());
+            }
+        }
+
+        return dirsWithPythons;
+    }
 
 
 
