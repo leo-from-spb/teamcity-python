@@ -13,6 +13,9 @@
           factory-bean="snakeHunterFactory"
           factory-method="createSnakeHunter" />
 
+    <bean id="agentSnakeHunter"
+          class="jetbrains.buildServer.python.hunter.AgentSnakeHunter"/>
+
     <bean id="pythonServiceFactory"
           class="jetbrains.buildServer.python.agent.PythonServiceFactory"/>
 

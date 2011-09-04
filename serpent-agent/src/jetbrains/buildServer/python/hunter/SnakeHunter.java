@@ -200,18 +200,6 @@ public abstract class SnakeHunter
 
 
 
-    //// SELECT PREFERRED INSTALLATIOND \\\\
-
-
-    public Map<String,String> choosePythonInstallations(final @NotNull InstalledPythons installedPythons)
-    {
-        // installed pythons are ordered - better pythons (more fat and delicious) are at the end of the list.
-        // for each variable, we're selecting the last matched one.
-        return null; // TODO implement
-    }
-
-
-
     //// COMMON HUNTING ROUTINES \\\\
 
 

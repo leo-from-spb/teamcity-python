@@ -6,13 +6,10 @@ import jetbrains.buildServer.CommandLineExecutor;
 import jetbrains.buildServer.ExecResult;
 import jetbrains.buildServer.util.Bitness;
 import org.jetbrains.annotations.NotNull;
-import sun.plugin.dom.exception.InvalidStateException;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -162,17 +159,17 @@ public final class WinRegistry
             winDirPath = "C:\\Windows";
         File winDir = new File(winDirPath);
         if (!winDir.exists())
-            throw new InvalidStateException("Could not determine Windows directory");
+            throw new IllegalStateException("Could not determine Windows directory");
 
         // windows system directory
         File winSysDir = new File(winDir, "system32");
         if (!winSysDir.exists())
-            throw new InvalidStateException("Could not determine Windows system directory");
+            throw new IllegalStateException("Could not determine Windows system directory");
 
         // reg util
         File regUtil = new File(winSysDir, "reg.exe");
         if (!regUtil.exists())
-            throw new InvalidStateException("Could not found the 'reg.exe' utility.");
+            throw new IllegalStateException("Could not found the 'reg.exe' utility.");
 
         // ok
         return regUtil;

@@ -33,6 +33,22 @@ public class SnakeHunterRunner
                                      SortedMap<String,String> selection)
             throws IOException
     {
+        String pythonsText = PrepareSummaryText(pythons, selection);
+
+        if (args.length == 1)
+        {
+            String outputFileName = args[0];
+            File outputFile = new File(outputFileName);
+            YAFU.writeTextFile(outputFile, pythonsText);
+        }
+        else
+        {
+            System.out.println(pythonsText);
+        }
+    }
+
+    static String PrepareSummaryText(InstalledPythons pythons, SortedMap<String, String> selection)
+    {
         StringBuilder buf = new StringBuilder();
 
         if (pythons.found())
@@ -49,18 +65,7 @@ public class SnakeHunterRunner
             buf.append("No Python installations found.");
         }
 
-        String pythonsText = buf.toString();
-
-        if (args.length == 1)
-        {
-            String outputFileName = args[0];
-            File outputFile = new File(outputFileName);
-            YAFU.writeTextFile(outputFile, pythonsText);
-        }
-        else
-        {
-            System.out.println(pythonsText);
-        }
+        return buf.toString();
     }
 
 }
