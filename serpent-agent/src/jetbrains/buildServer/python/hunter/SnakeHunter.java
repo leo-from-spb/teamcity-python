@@ -77,6 +77,42 @@ public abstract class SnakeHunter
     }
 
 
+    public SortedMap<String,String> select(InstalledPythons allPythons)
+    {
+        SortedMap<String,String> selection = new TreeMap<String,String>();
+
+        // there we're assuming that all pythons are already sorted
+        // and better ones are at the bottom
+        for (InstalledPython python: allPythons.getPythons())
+        {
+            String path = python.executable.getAbsolutePath();
+
+            switch (python.kind)
+            {
+                case Classic:
+                    selection.put("Python", path);
+                    selection.put("Python." + python.version.major, path);
+                    selection.put("Python.x" + python.bitness, path);
+                    selection.put("Python." + python.version.major + ".x" + python.bitness, path);
+                    break;
+
+                case Iron:
+                    selection.put("IronPython", path);
+                    selection.put("IronPython.x" + python.bitness, path);
+                    break;
+
+                case Jython:
+                    selection.put("Jython", path);
+                    break;
+            }
+        }
+
+        if (!selection.isEmpty())
+            selection.put("AnyPython", selection.get(selection.lastKey()));
+
+        return selection;
+    }
+
 
 
     //// CLASSIC PYTHONS HUNTING \\\\\

@@ -1,10 +1,10 @@
 package jetbrains.buildServer.python.hunter;
 
-import com.intellij.openapi.util.SystemInfo;
 import jetbrains.buildServer.utils.YAFU;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.SortedMap;
 
 /**
  * Factory and runner for SnakeHunter.
@@ -19,15 +19,37 @@ public class SnakeHunterRunner
         SnakeHunterFactory factory = new SnakeHunterFactory();
         SnakeHunter hunter = factory.createSnakeHunter();
 
-        InstalledPythons pythons = hunter.hunt();
+        InstalledPythons pythons =
+                hunter.hunt();
+        SortedMap<String,String> selection =
+                hunter.select(pythons);
 
-        printResults(args, pythons);
+        printResults(args, pythons, selection);
     }
 
 
-    private static void printResults(String[] args, InstalledPythons pythons) throws IOException
+    private static void printResults(String[] args,
+                                     InstalledPythons pythons,
+                                     SortedMap<String,String> selection)
+            throws IOException
     {
-        String pythonsText = pythons.found() ? pythons.toString() : "No Python installations found.";
+        StringBuilder buf = new StringBuilder();
+
+        if (pythons.found())
+        {
+            buf.append("Found Pythons: \n");
+            for(InstalledPython python: pythons.getPythons())
+                buf.append('\t').append(python.toString()).append('\n');
+            buf.append("Selected Pythons: \n");
+            for (SortedMap.Entry<String,String> entry: selection.entrySet())
+                buf.append('\t').append(entry.getKey()).append(" = ").append(entry.getValue()).append('\n');
+        }
+        else
+        {
+            buf.append("No Python installations found.");
+        }
+
+        String pythonsText = buf.toString();
 
         if (args.length == 1)
         {
