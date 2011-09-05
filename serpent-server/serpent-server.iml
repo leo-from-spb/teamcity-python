@@ -11,10 +11,10 @@
     <facet type="web" name="Web">
       <configuration>
         <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$TeamCityDistribution$/webapps/ROOT/WEB-INF/web.xml" />
+          <deploymentDescriptor name="web.xml" url="file://F:/TC/17834/webapps/ROOT/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://$TeamCityDistribution$/webapps/ROOT" relative="/" />
+          <root url="file://F:/TC/17834/webapps/ROOT" relative="/" />
         </webroots>
       </configuration>
     </facet>
@@ -33,11 +33,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$TeamCityDistribution$/webapps/ROOT" />
+          <root url="file://F:/TC/17834/webapps/ROOT" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$TeamCityDistribution$/webapps/ROOT" />
+          <root url="file://F:/TC/17834/webapps/ROOT" />
         </SOURCES>
       </library>
     </orderEntry>
