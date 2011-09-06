@@ -5,4 +5,5 @@ package jetbrains.buildServer.python.server;
  */
 public class PythonPropertiesBean
 {
+
 }
