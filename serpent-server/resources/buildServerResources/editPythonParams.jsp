@@ -17,6 +17,7 @@
           var kindSelector = $j("#python-kind");
           var verSelector = $j("#python-ver");
           var bitnessSelector = $j("#bitness");
+          var exeField = $j("#python-exe");
 
           var kind = kindSelector.attr("value");
 
@@ -25,13 +26,45 @@
 
           if (kind == 'X' || kind == '*') { bitnessSelector.attr("value","*"); bitnessSelector.attr("disabled","disabled"); }
           else bitnessSelector.removeAttr("disabled");
+
+          if (kind == 'X') exeField.removeAttr("disabled");
+          else exeField.attr("disabled","disabled");
+
+          this.refreshExeField();
       },
 
 
-      onPythonKindChanged: function()
+      refreshExeField: function()
       {
-          this.refreshControlsState();
+          var kindSelector = $j("#python-kind");
+          var verSelector = $j("#python-ver");
+          var bitnessSelector = $j("#bitness");
+          var exeField = $j("#python-exe");
+
+          var kind = kindSelector.attr("value");
+
+          var exeString = exeField.attr("value");
+          var bitnessCode = bitnessSelector.attr("value");
+          var bitnessString = bitnessCode == '*' ? '' : '.x' + bitnessCode;
+          switch (kind)
+          {
+              case '*':
+                  exeString = "%AnyPython%";
+                  break;
+              case 'C':
+                  var ver = verSelector.attr("value");
+                  exeString = "%Python" + (ver == '*' ? '' : '.'+ver) + bitnessString + "%";
+                  break;
+              case 'I':
+                  exeString = "%IronPython" + bitnessString + "%";
+                  break;
+              case 'J':
+                  exeString = "%Jython%";
+                  break;
+          }
+          exeField.attr("value", exeString);
       },
+
 
       updateScriptMode : function()
       {
@@ -60,14 +93,14 @@
         <label for="python-kind">Python kind</label>
     </th>
     <td>
-        <props:selectProperty name="python-kind" onchange="BS.Python.onPythonKindChanged()">
+        <props:selectProperty name="python-kind" onchange="BS.Python.refreshControlsState()">
             <props:option value="*">any</props:option>
             <props:option value="C">Classic Python</props:option>
             <props:option value="I">Iron Python</props:option>
             <props:option value="J">Jython</props:option>
             <props:option value="X">Custom</props:option>
         </props:selectProperty>
-        <props:selectProperty name="python-ver">
+        <props:selectProperty name="python-ver" onchange="BS.Python.refreshExeField()">
             <props:option value="*">any</props:option>
             <props:option value="2">2.x</props:option>
             <props:option value="3">3.x</props:option>
@@ -81,11 +114,22 @@
         <label for="bitness">Bitness</label>
     </th>
     <td>
-        <props:selectProperty name="bitness">
+        <props:selectProperty name="bitness" onchange="BS.Python.refreshExeField()">
             <props:option value="*">any</props:option>
             <props:option value="32">x32</props:option>
             <props:option value="64">x64</props:option>
         </props:selectProperty>
+    </td>
+</tr>
+
+
+<tr>
+    <th>
+        <label for="python-exe">Python executable</label>
+    </th>
+    <td>
+        <props:textProperty name="python-exe" className="longField" />
+        <span class="smallNote">Path to Python executable</span>
     </td>
 </tr>
 
