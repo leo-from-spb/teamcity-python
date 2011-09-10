@@ -1,16 +1,10 @@
 Files that should be placed into this directory:
 
-    teamcity:
+    junit-4.8.2.jar
 
-        README.txt
-        common-api.jar
-        server-api.jar
-        agent-api.jar
-        runtime/runtime-util.jar
-        runtime/serviceMessages.jar
-        src/openApi-source.jar
-        src/serviceMessages-src.jar
-        javadoc/openApi-help.jar
 
-	Buildserver download URL:
-	http://buildserver/guestAuth/repository/download/bt457/latest.lastPinned/devPackage/<file>
+In order to download them, run the following command
+
+    python scripts/getlibs.py
+
+being in the checkout directory.

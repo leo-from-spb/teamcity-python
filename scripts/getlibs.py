@@ -1,47 +1,47 @@
 import os
 import urllib.request
 
-TeamCityLibPath = "lib/teamcity"
 
-TeamCityLibDirectories = [ "runtime", "src", "javadoc" ]
+Libs = \
+    {
+        "junit-4.8.2.jar" : "https://github.com/downloads/KentBeck/junit/junit-4.8.2.jar"
+    }
 
-TeamCityLibFiles = [ "README.txt",
-                     "common-api.jar",
-                     "server-api.jar",
-                     "agent-api.jar",
-                     "runtime/runtime-util.jar",
-                     "runtime/serviceMessages.jar",
-                     "src/openApi-source.jar",
-                     "src/serviceMessages-src.jar",
-                     "javadoc/openApi-help.jar" ]
+LibDir = "./lib"
+
 
 
 def Main():
 
-    print("Downloading TeamCity libraries\n")
+    print("Downloading libraries\n")
 
-    ensureDir(TeamCityLibPath)
-    for dname in TeamCityLibDirectories:
-        ensureDir(TeamCityLibPath + '/' + dname)
-
-    for fname in TeamCityLibFiles:
-        processOneLibFile(fname)
+    ensureDir(LibDir)
+    for lib in Libs.items():
+        processOneLibFile(lib)
 
     print("Ok.")
 
 
-def processOneLibFile(name):
+def processOneLibFile(lib):
+
+    (name, url) = lib
 
     print("\t" + name)
-    content = downloadTeamCityLibFile(name)
-    ## print(name + " - downloaded.")
-    writeBinFile(TeamCityLibPath + '/' + name, content)
-    ## print(name + " - writed.")
+
+    fileName = LibDir + '/' + name
+    if os.path.exists(fileName):
+        existentSize = os.path.getsize(fileName)
+        print("\t\tskipped; current file size is %d bytes" % existentSize)
+        return
+
+    content = downloadTeamCityLibFile(url)
+    writeBinFile(fileName, content)
+    resultSize = os.path.getsize(fileName)
+    print("\t\tdownloaded %d bytes" % resultSize)
 
 
-def downloadTeamCityLibFile(name):
+def downloadTeamCityLibFile(url):
 
-    url = r"http://buildserver/guestAuth/repository/download/bt457/latest.lastPinned/devPackage/" + name
     response = urllib.request.urlopen(url)
     content = response.read()
     return content
