@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="junit">
+    <CLASSES>
+      <root url="jar://D:/JetBrains/TeamCity/18018/buildAgent/tools/idea/lib/junit-4.8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="http://kentbeck.github.com/junit/javadoc/4.8/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

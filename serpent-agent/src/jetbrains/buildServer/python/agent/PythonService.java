@@ -42,14 +42,12 @@ public class PythonService extends BuildServiceAdapter
         List<String> arguments = new ArrayList<String>(1);
         arguments.add(runFile);
 
-        ProgramCommandLine pcl =
-                new SimpleProgramCommandLine(innerEnv, getWorkingDirectory().getAbsolutePath(), executable, arguments);
-        return pcl;
+        return new SimpleProgramCommandLine(innerEnv, getWorkingDirectory().getAbsolutePath(), executable, arguments);
     }
 
 
     @NotNull
-    private String ensureExecutable()
+    String ensureExecutable()
             throws RunBuildException
     {
         String executable = getParam("python-exe");
@@ -203,9 +201,18 @@ public class PythonService extends BuildServiceAdapter
 
     private String getParam(final @NotNull String paramName)
     {
-        Map<String,String> runnerParameters = getRunnerParameters();
-        String value = trimAndNull(runnerParameters.get(paramName));
+        Map<String,String> parameters = getRunParameters();
+        String value = trimAndNull(parameters.get(paramName));
         return value;
+    }
+
+    /**
+     * Just for make it able to overried in tests.
+     * @return just the result of {@link jetbrains.buildServer.agent.runner.BuildServiceAdapter#getRunnerParameters()}.
+     */
+    protected Map<String, String> getRunParameters()
+    {
+        return getRunnerParameters();
     }
 
 

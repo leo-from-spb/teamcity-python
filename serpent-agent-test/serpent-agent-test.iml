@@ -7,8 +7,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="serpent-agent" />
     <orderEntry type="module" module-name="serpent-common" />
     <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="library" name="TeamCityAPI-agent" level="project" />
+    <orderEntry type="library" name="TeamCityAPI-common" level="project" />
   </component>
 </module>
 
