@@ -2,7 +2,10 @@ package jetbrains.buildServer.utils;
 
 
 import jetbrains.buildServer.util.StringUtil;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Set;
 
 /**
  * Yet Another String Util
@@ -43,6 +46,19 @@ public final class YASU
     public static char firstChar(final @Nullable String str)
     {
         return str != null && str.length() >= 1 ? str.charAt(0) : '\0';
+    }
+
+
+    public static String adjustCase(final @NotNull String string, final @NotNull Set<String> strings)
+    {
+        if (strings.contains(string))
+            return string;
+
+        for (String s: strings)
+            if (s != null && s.equalsIgnoreCase(string))
+                return s;
+
+        return string;
     }
 
 }

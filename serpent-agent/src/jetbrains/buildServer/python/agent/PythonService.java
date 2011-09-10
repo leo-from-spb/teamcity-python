@@ -37,9 +37,9 @@ public class PythonService extends BuildServiceAdapter
         // resolve main script or prepare it if needed
         String runFile = ensureRunFile();
 
-        Map<String,String> innerEnv = prepareEnv();
+        Map<String,String> innerEnv = prepareEnv(getEnvironmentVariables(), executable);
 
-        List<String> arguments = new ArrayList<String>(4);
+        List<String> arguments = new ArrayList<String>(1);
         arguments.add(runFile);
 
         ProgramCommandLine pcl =
@@ -50,6 +50,18 @@ public class PythonService extends BuildServiceAdapter
 
     @NotNull
     private String ensureExecutable()
+            throws RunBuildException
+    {
+        String executable = getParam("python-exe");
+        if (executable != null && executable.length() > 0)
+            return executable;
+        else
+            return resolveAlternativeExecutable();
+    }
+
+
+    @NotNull
+    private String resolveAlternativeExecutable()
             throws RunBuildException
     {
         final String pyKindStr = getParam("python.kind");
@@ -66,9 +78,14 @@ public class PythonService extends BuildServiceAdapter
             case 'J':
             case 'j':
                 return "jython";
+            case 'a':
+            case 'A':
             case '*':
             case '\0':
                 return tryToDetermineDefaultPython();
+            case 'x':
+            case 'X':
+                throw new RunBuildException("Custom python is selected but the executable path is not specified.");
             default:
                 throw new RunBuildException("Unknown python kind: " + pyKindStr);
         }
@@ -84,7 +101,7 @@ public class PythonService extends BuildServiceAdapter
     private String ensureRunFile()
             throws RunBuildException
     {
-        final String theScriptModeStr = getParam("python.script.mode");
+        final String theScriptModeStr = getParam("python-script-mode");
         if (theScriptModeStr == null)
             throw new RunBuildException("Python run mode is not specified.");
         if (theScriptModeStr.equalsIgnoreCase("code"))
@@ -99,7 +116,7 @@ public class PythonService extends BuildServiceAdapter
     private String prepareRunFileFromGivenCode()
             throws RunBuildException
     {
-        final String theCode = getParam("python.script.code");
+        final String theCode = getParam("python-script-code");
         if (theCode == null)
             throw new RunBuildException("No python code to execute.");
 
@@ -126,7 +143,7 @@ public class PythonService extends BuildServiceAdapter
     private String provideRunFile()
             throws RunBuildException
     {
-        final String fileName = getParam("python.script.file.name");
+        final String fileName = getParam("python-script-file-name");
         if (fileName == null)
             throw new RunBuildException("No python file name provided.");
 
@@ -151,9 +168,11 @@ public class PythonService extends BuildServiceAdapter
 
     private void printRunnerParameters()
     {
+        /*
         Map<String,String> runnerParameters = getRunnerParameters();
         for (Map.Entry<String,String> paramEntry: runnerParameters.entrySet())
-            logMessage("runner parameter: " + paramEntry.getKey() + " -> " + paramEntry.getValue());
+            logMessage("runner parameter: " + paramEntry.getKey() + " = " + paramEntry.getValue());
+        */
     }
 
 
@@ -163,11 +182,20 @@ public class PythonService extends BuildServiceAdapter
     }
 
 
-    private Map<String,String> prepareEnv()
+    static Map<String,String> prepareEnv(final @NotNull Map<String,String> environment,
+                                         final @NotNull String executable)
     {
-        Map<String,String> innerEnv = new TreeMap<String,String>( getEnvironmentVariables() );
+        Map<String,String> innerEnv = new TreeMap<String,String>(environment);
 
-        // TODO include new environment variables
+        File exeFile = new File(executable);
+        innerEnv.put("python", exeFile.getAbsolutePath());
+
+        String dir = exeFile.getParent();
+
+        String pathKey = adjustCase("PATH", innerEnv.keySet());
+        String pathVar = innerEnv.get(pathKey);
+        pathVar = dir + (pathVar != null ? File.pathSeparatorChar + pathVar : "");
+        innerEnv.put(pathKey, pathVar);
 
         return innerEnv;
     }
