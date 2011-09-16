@@ -9,12 +9,10 @@
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="true" />
     <module name="scripts" />
-    <option name="SCRIPT_NAME" value="scripts/getlibs.py" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/getlibs.py" />
     <option name="PARAMETERS" value="" />
     <RunnerSettings RunnerId="Run" />
     <ConfigurationWrapper RunnerId="Run" />
-    <method>
-      <option name="Make" enabled="false" />
-    </method>
+    <method />
   </configuration>
 </component>
