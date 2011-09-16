@@ -15,6 +15,20 @@
   </component>
   <component name="FacetAutodetectingManager">
     <autodetection-disabled>
+      <facet-type id="Spring">
+        <modules>
+          <module name="serpent-agent">
+            <files>
+              <file url="file://$PROJECT_DIR$/serpent-agent/resources/META-INF/build-agent-plugin-python.xml" />
+            </files>
+          </module>
+          <module name="serpent-server">
+            <files>
+              <file url="file://$PROJECT_DIR$/serpent-server/src/META-INF/build-server-plugin-python.xml" />
+            </files>
+          </module>
+        </modules>
+      </facet-type>
       <facet-type id="web">
         <modules>
           <module name="web-resolve-helper">

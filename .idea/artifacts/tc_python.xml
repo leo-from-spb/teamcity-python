@@ -3,20 +3,21 @@
     <output-path>$PROJECT_DIR$/out/artifacts</output-path>
     <root id="root">
       <element id="archive" name="python.zip">
-        <element id="dir-copy" path="$PROJECT_DIR$/package" />
         <element id="directory" name="server">
           <element id="artifact" artifact-name="serpent-server" />
           <element id="artifact" artifact-name="serpent-common" />
         </element>
         <element id="directory" name="agent">
           <element id="archive" name="python-agent.zip">
-            <element id="directory" name="lib">
-              <element id="artifact" artifact-name="serpent-agent" />
-              <element id="artifact" artifact-name="serpent-common" />
+            <element id="directory" name="python-agent">
+              <element id="directory" name="lib">
+                <element id="artifact" artifact-name="serpent-agent" />
+                <element id="artifact" artifact-name="serpent-common" />
+              </element>
             </element>
-            <element id="file-copy" path="$PROJECT_DIR$/serpent-agent/teamcity-plugin.xml" />
           </element>
         </element>
+        <element id="dir-copy" path="$PROJECT_DIR$/package" />
       </element>
     </root>
   </artifact>
