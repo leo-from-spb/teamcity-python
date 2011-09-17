@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/serpent-common/serpent-common.iml" filepath="$PROJECT_DIR$/serpent-common/serpent-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/serpent-common-test/serpent-common-test.iml" filepath="$PROJECT_DIR$/serpent-common-test/serpent-common-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/serpent-server/serpent-server.iml" filepath="$PROJECT_DIR$/serpent-server/serpent-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-scripts/test-any/test-any.iml" filepath="$PROJECT_DIR$/test-scripts/test-any/test-any.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-scripts/test-classic/test-classic.iml" filepath="$PROJECT_DIR$/test-scripts/test-classic/test-classic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-scripts/test-iron/test-iron.iml" filepath="$PROJECT_DIR$/test-scripts/test-iron/test-iron.iml" />
     </modules>
   </component>
 </project>

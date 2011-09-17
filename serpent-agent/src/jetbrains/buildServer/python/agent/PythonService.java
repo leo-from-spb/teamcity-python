@@ -6,6 +6,7 @@ import jetbrains.buildServer.agent.runner.ProcessListener;
 import jetbrains.buildServer.agent.runner.ProgramCommandLine;
 import jetbrains.buildServer.agent.runner.SimpleProgramCommandLine;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,13 +32,16 @@ public class PythonService extends BuildServiceAdapter
         // just print the parameters
         printRunnerParameters();
 
+        char pythonKind = Character.toUpperCase(firstChar(getParam("python-kind")));
+
         // resolve executable
         final String executable = ensureExecutable();
 
         // resolve main script or prepare it if needed
         String runFile = ensureRunFile();
+        String pythonPathVar = getParam("python-path");
 
-        Map<String,String> innerEnv = prepareEnv(getEnvironmentVariables(), executable);
+        Map<String,String> innerEnv = prepareEnv(pythonKind, getEnvironmentVariables(), executable, pythonPathVar);
 
         List<String> arguments = new ArrayList<String>(1);
         arguments.add(runFile);
@@ -180,8 +184,10 @@ public class PythonService extends BuildServiceAdapter
     }
 
 
-    static Map<String,String> prepareEnv(final @NotNull Map<String,String> environment,
-                                         final @NotNull String executable)
+    static Map<String,String> prepareEnv(final char pythonKind,
+                                         final @NotNull Map<String, String> environment,
+                                         final @NotNull String executable,
+                                         final @Nullable String pythonPathVar)
     {
         Map<String,String> innerEnv = new TreeMap<String,String>(environment);
 
@@ -194,6 +200,15 @@ public class PythonService extends BuildServiceAdapter
         String pathVar = innerEnv.get(pathKey);
         pathVar = dir + (pathVar != null ? File.pathSeparatorChar + pathVar : "");
         innerEnv.put(pathKey, pathVar);
+
+        if (pythonPathVar != null && pythonPathVar.length() > 0)
+        {
+            String ppvName = (pythonKind == 'I') ? "IRONPYTHONPATH" : "PYTHONPATH";
+            String ppvKey = adjustCase(ppvName, innerEnv.keySet());
+            String ppvValue = innerEnv.get(ppvKey);
+            ppvValue = pythonPathVar + (ppvValue != null ? File.pathSeparatorChar + ppvValue : "");
+            innerEnv.put(ppvKey, ppvValue);
+        }
 
         return innerEnv;
     }

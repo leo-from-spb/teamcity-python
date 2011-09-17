@@ -1,0 +1,23 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test basic-classic" type="PythonConfigurationType" factoryName="Python">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <envs>
+      <env name="PYTHONPATH" value="..\..\test-any\src" />
+      <env name="PYTHONUNBUFFERED" value="1" />
+    </envs>
+    <option name="SDK_HOME" value="$PythonExe$" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test-scripts/test-classic/tests" />
+    <option name="IS_MODULE_SDK" value="true" />
+    <module name="test-iron" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-scripts/test-classic/tests/basic-classic.py" />
+    <option name="PARAMETERS" value="" />
+    <RunnerSettings RunnerId="PyDebugRunner" />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="PyDebugRunner" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method>
+      <option name="Make" enabled="false" />
+    </method>
+  </configuration>
+</component>

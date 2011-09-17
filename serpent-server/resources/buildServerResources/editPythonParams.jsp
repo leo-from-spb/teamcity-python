@@ -169,6 +169,15 @@
   </td>
 </tr>
 
+<tr id="python_path">
+  <th>
+    <label for="python-path">Path to modules (the <tt>PYTHONPATH</tt> or <tt>IRONPYTHONPATH</tt> variable)</label>
+  </th>
+  <td>
+    <props:textProperty name="python-path" className="longField" />
+  </td>
+</tr>
+
 
 <script type="text/javascript">
 

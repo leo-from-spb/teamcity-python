@@ -74,6 +74,7 @@ public class PythonRunType extends RunType
     props.put("python-ver", "*");
     props.put("bitness", "*");
     props.put("python-script-mode", "code");
+    props.put("python-path", "");
     return props;
   }
 
