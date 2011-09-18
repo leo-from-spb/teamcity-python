@@ -52,7 +52,7 @@
 <div class="parameter">
   <c:choose>
     <c:when test="${propertiesBean.properties['python-script-mode'] eq 'file'}">
-      Python file: <strong><tt>${propertiesBean.properties['python-script-file-name']}</tt></strong>
+      Python file: <strong>${propertiesBean.properties['python-script-file-name']}</strong>
     </c:when>
     <c:when test="${propertiesBean.properties['python-script-mode'] eq 'code'}">
       Python script:<br/>

@@ -90,7 +90,7 @@
 
 <tr>
     <th>
-        <label for="python-kind">Python kind</label>
+        <label for="python-kind">Python kind:</label>
     </th>
     <td>
         <props:selectProperty name="python-kind" onchange="BS.Python.refreshControlsState()">
@@ -111,7 +111,7 @@
 
 <tr>
     <th>
-        <label for="bitness">Bitness</label>
+        <label for="bitness">Bitness:</label>
     </th>
     <td>
         <props:selectProperty name="bitness" onchange="BS.Python.refreshExeField()">
@@ -125,7 +125,7 @@
 
 <tr>
     <th>
-        <label for="python-exe">Python executable</label>
+        <label for="python-exe">Python executable:</label>
     </th>
     <td>
         <props:textProperty name="python-exe" className="longField" />
@@ -171,10 +171,11 @@
 
 <tr id="python_path">
   <th>
-    <label for="python-path">Path to modules (the <tt>PYTHONPATH</tt> or <tt>IRONPYTHONPATH</tt> variable)</label>
+    <label for="python-path">Import modules path:</label>
   </th>
   <td>
     <props:textProperty name="python-path" className="longField" />
+    <span class="smallNote">Path to modules (the <tt>PYTHONPATH</tt> or <tt>IRONPYTHONPATH</tt> variable)</span>
   </td>
 </tr>
 
