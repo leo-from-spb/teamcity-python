@@ -97,7 +97,7 @@
             <props:option value="*">any</props:option>
             <props:option value="C">Classic Python</props:option>
             <props:option value="I">Iron Python</props:option>
-            <props:option value="J">Jython</props:option>
+            <%--props:option value="J">Jython</props:option--%>
             <props:option value="X">Custom</props:option>
         </props:selectProperty>
         <props:selectProperty name="python-ver" onchange="BS.Python.refreshExeField()">
