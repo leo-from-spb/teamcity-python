@@ -6,7 +6,7 @@
   <info>
     <name>python</name>
     <display-name>Python runner</display-name>
-    <version>1.0.0</version>
+    <version>1.0.52.1</version>
   </info>
   <deployment use-separate-classloader="true" />
 </teamcity-plugin>
