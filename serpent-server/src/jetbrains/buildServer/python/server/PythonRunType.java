@@ -39,7 +39,7 @@ public class PythonRunType extends RunType
   @Override
   public String getDisplayName()
   {
-    return "Python runner";
+    return "Python";
   }
 
   @Override
