@@ -1,5 +1,7 @@
 package jetbrains.buildServer.python.hunter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.Set;
 
@@ -15,6 +17,7 @@ class SnakeHunterForMac extends SnakeHunter
     @Override
     protected void collectDirsToLookForClassicPython(Set<File> dirsToLook)
     {
+        addSubdirs(dirsToLook, "/System/Library/Frameworks/Python.framework/Versions");
         dirsToLook.addAll(runPaths);
 
         String thePythonHome = System.getenv("PYTHONHOME");
@@ -47,4 +50,21 @@ class SnakeHunterForMac extends SnakeHunter
     {
         return new String[]{"ipy"};
     }
+
+
+
+    //// UTILS \\\\
+
+    private static void addSubdirs(@NotNull Set<File> dirsToLook, @NotNull final String parentPath)
+    {
+        File parentDir = new File(parentPath);
+        if (!parentDir.isDirectory())
+            return;
+        File[] subDirs = parentDir.listFiles();
+        if (subDirs != null)
+            for (File subDir: subDirs)
+                if (subDir.isDirectory() && !subDir.getName().startsWith("."))
+                    dirsToLook.add(subDir);
+    }
+
 }
