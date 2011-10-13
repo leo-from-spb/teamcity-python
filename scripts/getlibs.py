@@ -57,7 +57,7 @@ def writeBinFile(fname, content):
 def ensureDir(name):
 
     if not os.path.exists(name):
-        os.makedirs(name, exist_ok=True)
+        os.makedirs(name)
 
 
 
