@@ -2,6 +2,7 @@ package jetbrains.buildServer.python.hunter;
 
 import java.io.File;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Python detector for Unix-like OS.
@@ -28,9 +29,9 @@ class SnakeHunterForUnix extends SnakeHunter
 
 
     @Override
-    protected String[] getClassicPythonExeFiles()
+    protected Pattern getClassicPythonExeFileNamePattern()
     {
-        return new String[]{"python"};
+        return Pattern.compile("python(\\d(\\.\\d)?)?");
     }
 
 
@@ -47,9 +48,9 @@ class SnakeHunterForUnix extends SnakeHunter
 
 
     @Override
-    protected String[] getIronPythonExeFiles()
+    protected Pattern getIronPythonExeFileNamePattern()
     {
-        return new String[]{"ipy.exe", "ipy"};
+        return Pattern.compile("ipy(32|64)?(\\.exe)?", Pattern.CASE_INSENSITIVE);
     }
 
 }

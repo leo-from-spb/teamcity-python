@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Python detector for MacOS.
@@ -28,9 +29,9 @@ class SnakeHunterForMac extends SnakeHunter
 
 
     @Override
-    protected String[] getClassicPythonExeFiles()
+    protected Pattern getClassicPythonExeFileNamePattern()
     {
-        return new String[]{"python"};
+        return Pattern.compile("python");
     }
 
 
@@ -46,9 +47,9 @@ class SnakeHunterForMac extends SnakeHunter
 
 
     @Override
-    protected String[] getIronPythonExeFiles()
+    protected Pattern getIronPythonExeFileNamePattern()
     {
-        return new String[]{"ipy"};
+        return Pattern.compile("ipy(32|64)?(\\.exe)?", Pattern.CASE_INSENSITIVE);
     }
 
 

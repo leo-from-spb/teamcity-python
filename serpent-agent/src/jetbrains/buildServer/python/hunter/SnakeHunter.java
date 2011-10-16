@@ -124,7 +124,7 @@ public abstract class SnakeHunter
         collectDirsToLookForClassicPython(dirsToLook);
 
         Set<File> pretendents = new LinkedHashSet<File>(dirsToLook.size());
-        lookExeFiles(dirsToLook, getClassicPythonExeFiles(), pretendents);
+        lookExeFiles(dirsToLook, getClassicPythonExeFileNamePattern(), pretendents);
 
         examClassicPythons(pretendents, pythons);
     }
@@ -132,7 +132,7 @@ public abstract class SnakeHunter
     protected abstract void collectDirsToLookForClassicPython(Set<File> dirsToLook);
 
 
-    protected abstract String[] getClassicPythonExeFiles();
+    protected abstract Pattern getClassicPythonExeFileNamePattern();
 
 
     private static final String ourClassicExamText =
@@ -161,7 +161,7 @@ public abstract class SnakeHunter
 
 
         Set<File> pretendents = new LinkedHashSet<File>(2);
-        lookExeFiles(dirsToLook, getIronPythonExeFiles(), pretendents);
+        lookExeFiles(dirsToLook, getIronPythonExeFileNamePattern(), pretendents);
 
         examIronPythons(pretendents, pythons);
     }
@@ -170,7 +170,7 @@ public abstract class SnakeHunter
     protected abstract void collectDirsToLookForIronPython(Set<File> dirsToLook);
 
 
-    protected abstract String[] getIronPythonExeFiles();
+    protected abstract Pattern getIronPythonExeFileNamePattern();
 
 
     private static final String ourIronExamText =
@@ -203,14 +203,18 @@ public abstract class SnakeHunter
     //// COMMON HUNTING ROUTINES \\\\
 
 
-    protected void lookExeFiles(Collection<File> dirsToLook, String[] fileNames, Collection<File> foundFiles)
+    protected void lookExeFiles(Collection<File> dirsToLook, Pattern fileNamePattern, Collection<File> foundFiles)
     {
         for (File dir: dirsToLook)
         {
-            for (String fileName: fileNames)
+            File[] files = dir.listFiles();
+            if (files == null || files.length == 0)
+                continue;
+
+            for (File file: files)
             {
-                File file = new File(dir, fileName);
-                if (file.exists() && file.canExecute())
+                final Matcher m = fileNamePattern.matcher(file.getName());
+                if (m.matches() && file.canExecute())
                     foundFiles.add(file);
             }
         }

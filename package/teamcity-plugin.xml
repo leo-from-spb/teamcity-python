@@ -6,7 +6,7 @@
   <info>
     <name>python</name>
     <display-name>Python runner</display-name>
-    <version>1.0.55.1</version>
+    <version>1.0.60.2</version>
     <vendor>
       <name>Leonido</name>
       <url>http://code.google.com/p/teamcity-python</url>

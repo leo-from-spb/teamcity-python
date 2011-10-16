@@ -44,9 +44,9 @@ class SnakeHunterForWindows extends SnakeHunter
 
 
     @Override
-    protected String[] getClassicPythonExeFiles()
+    protected Pattern getClassicPythonExeFileNamePattern()
     {
-        return new String[]{"python.exe"};
+        return Pattern.compile("python.exe", Pattern.CASE_INSENSITIVE);
     }
 
 
@@ -108,9 +108,9 @@ class SnakeHunterForWindows extends SnakeHunter
 
 
     @Override
-    protected String[] getIronPythonExeFiles()
+    protected Pattern getIronPythonExeFileNamePattern()
     {
-        return new String[]{"ipy64.exe", "ipy.exe", "ipy32.exe"};
+        return Pattern.compile("ipy(32|64)?\\.exe", Pattern.CASE_INSENSITIVE);
     }
 
 
