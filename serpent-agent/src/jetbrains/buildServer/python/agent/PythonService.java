@@ -41,10 +41,14 @@ public class PythonService extends BuildServiceAdapter
         String runFile = ensureRunFile();
         String pythonPathVar = getParam("python-path");
 
+        // arguments for the python script
+        List<String> pythonArguments = getArguments();
+
         Map<String,String> innerEnv = prepareEnv(pythonKind, getEnvironmentVariables(), executable, pythonPathVar);
 
-        List<String> arguments = new ArrayList<String>(1);
+        List<String> arguments = new ArrayList<String>(1 + pythonArguments.size());
         arguments.add(runFile);
+        arguments.addAll(pythonArguments);
 
         return new SimpleProgramCommandLine(innerEnv, getWorkingDirectory().getAbsolutePath(), executable, arguments);
     }
@@ -165,6 +169,29 @@ public class PythonService extends BuildServiceAdapter
     {
         final File workingDirectory = getWorkingDirectory();
         return new File(workingDirectory, relName);
+    }
+
+
+    @NotNull
+    private List<String> getArguments()
+    {
+        String text = getParam("python-arguments");
+        if (text == null)
+            return Collections.emptyList();
+        text = text.trim();
+        if (text.length() == 0)
+            return Collections.emptyList();
+
+        String[] lines = text.split("\n");
+        List<String> args = new ArrayList<String>(lines.length);
+        for (String line: lines)
+        {
+            line = line.trim();
+            if (line.length() > 0)
+                args.add(line);
+        }
+
+        return args;
     }
 
 

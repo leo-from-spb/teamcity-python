@@ -63,6 +63,15 @@
   </c:choose>
 </div>
 
+<div class="parameter">
+  <c:if test="${propertiesBean.properties['python-arguments'] ne ''}">
+    Arguments:
+    <pre>
+      <c:out value="${propertiesBean.properties['python-arguments']}"/>
+    </pre>
+  </c:if>
+</div>
+
 <c:if test="${propertiesBean.properties['python-path'] ne ''}">
   <div class="parameter">
     Python modules path: <strong><c:out value="${propertiesBean.properties['python-path']}"/></strong>

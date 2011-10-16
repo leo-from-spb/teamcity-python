@@ -73,9 +73,11 @@
         {
             BS.Util.hide($('python_script_code'));
             BS.Util.show($('python_script_file'));
+            BS.Util.show($('python_arguments'));
         }
         if (val == 'code')
         {
+            BS.Util.hide($('python_arguments'));
             BS.Util.hide($('python_script_file'));
             BS.Util.show($('python_script_code'));
         }
@@ -156,6 +158,18 @@
     <span class="error" id="error_script_file_name"></span>
   </td>
 </tr>
+
+<tr id="python_arguments">
+  <th><label for="python-arguments">Command line arguments:</label></th>
+  <td>
+    <props:multilineProperty name="python-arguments"
+                             linkTitle="Enter command-line arguments that will be provided to python script"
+                             cols="60" rows="5"
+                             expanded="${true}"/>
+    <span class="smallNote">Enter command-line arguments that will be provided to python script. One line - one argument (i.e. each argument on its own line).</span>
+  </td>
+</tr>
+
 
 <tr id="python_script_code">
   <th><label for="python-script-code">Python script source:</label></th>

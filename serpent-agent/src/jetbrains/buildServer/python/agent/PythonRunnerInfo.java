@@ -22,7 +22,6 @@ public class PythonRunnerInfo implements AgentBuildRunnerInfo
     @Override
     public boolean canRun(@NotNull BuildAgentConfiguration agentConfiguration)
     {
-        // TODO check whether I can run on this agent
-        return ! agentConfiguration.getSystemInfo().isMac();
+        return true;
     }
 }
