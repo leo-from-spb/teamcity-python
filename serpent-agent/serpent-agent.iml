@@ -16,6 +16,7 @@
     <orderEntry type="library" name="TeamCityAPI-common" level="project" />
     <orderEntry type="library" name="IdeaAPI" level="project" />
     <orderEntry type="module" module-name="serpent-common" />
+    <orderEntry type="module" module-name="serpent-hunter" />
   </component>
 </module>
 
