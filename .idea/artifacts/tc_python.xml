@@ -11,9 +11,9 @@
           <element id="archive" name="python-agent.zip">
             <element id="directory" name="python-agent">
               <element id="directory" name="lib">
-                <element id="artifact" artifact-name="serpent-agent" />
                 <element id="artifact" artifact-name="serpent-common" />
                 <element id="artifact" artifact-name="serpent-hunter" />
+                <element id="artifact" artifact-name="serpent-agent" />
               </element>
             </element>
           </element>
