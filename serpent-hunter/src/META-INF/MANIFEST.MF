@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: trove4j.jar util.jar openapi.jar annotations.jar common-api.jar
+Main-Class: serpent-hunter
+

@@ -13,6 +13,7 @@
               <element id="directory" name="lib">
                 <element id="artifact" artifact-name="serpent-agent" />
                 <element id="artifact" artifact-name="serpent-common" />
+                <element id="artifact" artifact-name="serpent-hunter" />
               </element>
             </element>
           </element>
