@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="serpent-hunter">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="serpent-hunter.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/serpent-hunter/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="serpent-hunter" />
+      <element id="module-output" name="serpent-common" />
+      <element id="extracted-dir" path="$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/trove4j.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/util.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/openapi.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$TeamCityDistribution$/webapps/ROOT/WEB-INF/lib/annotations.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$TeamCityDistribution$/devPackage/common-api.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
