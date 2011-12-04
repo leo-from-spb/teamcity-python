@@ -50,7 +50,7 @@ class SnakeHunterForUnix extends SnakeHunter
     @Override
     protected Pattern getIronPythonExeFileNamePattern()
     {
-        return Pattern.compile("ipy(32|64)?(\\.exe)?", Pattern.CASE_INSENSITIVE);
+        return Pattern.compile("ipy(32|64)?\\.exe", Pattern.CASE_INSENSITIVE);
     }
 
 }
