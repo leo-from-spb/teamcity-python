@@ -65,7 +65,10 @@ def GetBuildNrFromTeamCityVar():
     underTeamCity = os.environ.get('TEAMCITY_VERSION',"") != ""
 
     if underTeamCity:
-        buildNr = str(os.environ.get('BUILD_NUMBER','0'))
+        buildNrFullStr = os.environ.get('BUILD_NUMBER','0')
+        buildNrPattern = re.compile(r'^(.*\.)?(\d+).*$')
+        buildNrMatch = buildNrPattern.match(buildNrFullStr)
+        buildNr = int(buildNrMatch.group(2))
     else:
         buildNr = 0
 
