@@ -1,10 +1,13 @@
+#!/usr/local/bin/python3
+#
+
 import os
 import urllib.request
 
 
 Libs = \
     {
-        "junit-4.8.2.jar" : "https://github.com/downloads/KentBeck/junit/junit-4.8.2.jar"
+        "junit-4.8.2.jar" : "http://search.maven.org/remotecontent?filepath=junit/junit/4.8.2/junit-4.8.2.jar"
     }
 
 LibDir = "./lib"
