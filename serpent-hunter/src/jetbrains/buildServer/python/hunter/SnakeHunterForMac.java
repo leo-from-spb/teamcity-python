@@ -18,7 +18,9 @@ class SnakeHunterForMac extends SnakeHunter
     @Override
     protected void collectDirsToLookForClassicPython(Set<File> dirsToLook)
     {
-        addSubdirs(dirsToLook, "/System/Library/Frameworks/Python.framework/Versions");
+        addSubdirs(dirsToLook, "/Library/Frameworks/Python.framework/Versions");
+        addDeepSubdirs(dirsToLook, "/Library/Frameworks/Python.framework/Versions", "bin");
+
         dirsToLook.addAll(runPaths);
 
         String thePythonHome = System.getenv("PYTHONHOME");
@@ -31,7 +33,7 @@ class SnakeHunterForMac extends SnakeHunter
     @Override
     protected Pattern getClassicPythonExeFileNamePattern()
     {
-        return Pattern.compile("python");
+        return Pattern.compile("python3?");
     }
 
 
@@ -66,6 +68,22 @@ class SnakeHunterForMac extends SnakeHunter
             for (File subDir: subDirs)
                 if (subDir.isDirectory() && !subDir.getName().startsWith("."))
                     dirsToLook.add(subDir);
+    }
+
+    private static void addDeepSubdirs(@NotNull Set<File> dirsToLook, @NotNull final String parentPath, @NotNull final String relativePath)
+    {
+        File parentDir = new File(parentPath);
+        if (!parentDir.isDirectory())
+            return;
+        File[] subDirs = parentDir.listFiles();
+        if (subDirs != null)
+            for (File subDir: subDirs)
+                if (subDir.isDirectory())
+                {
+                    File deepDir = new File(subDir, relativePath);
+                    if (deepDir.isDirectory())
+                        dirsToLook.add(subDir);
+                }
     }
 
 }
