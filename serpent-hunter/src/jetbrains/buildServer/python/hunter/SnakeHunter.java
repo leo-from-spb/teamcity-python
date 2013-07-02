@@ -232,9 +232,9 @@ public abstract class SnakeHunter
         if (args != null)
             cmdLine.addParameters(args);
 
-        byte[] input = null;
-        if (inputText != null)
-            input = inputText.getBytes();
+        final byte[] input = inputText != null
+                ? inputText.getBytes()
+                : new byte[0];
 
         try
         {
