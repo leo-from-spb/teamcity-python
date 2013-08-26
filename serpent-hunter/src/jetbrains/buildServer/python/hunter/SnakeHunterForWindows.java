@@ -80,6 +80,9 @@ class SnakeHunterForWindows extends SnakeHunter
         lookForIronPythonLikeDirs("C:\\App", dirsToLook);
         lookForIronPythonLikeDirs("D:\\App", dirsToLook);
         lookForIronPythonLikeDirs("E:\\App", dirsToLook);
+
+        for (File dirFromRegistry : dirsFromRegistry)
+            lookForSiblingDirs(dirFromRegistry, dirsToLook);
     }
 
 
@@ -105,6 +108,24 @@ class SnakeHunterForWindows extends SnakeHunter
 
         Collections.addAll(dirs, outer.listFiles(filter));
     }
+
+    private void lookForSiblingDirs(File dir, Set<File> dirsToLook)
+    {
+        File parent = dir.getParentFile();
+        if (!parent.isDirectory()) return;
+
+        FileFilter filter = new FileFilter()
+        {
+            @Override
+            public boolean accept(File pathname)
+            {
+                return pathname.isDirectory();
+            }
+        };
+
+        Collections.addAll(dirsToLook, parent.listFiles(filter));
+    }
+
 
 
     @Override
