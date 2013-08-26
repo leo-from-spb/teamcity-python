@@ -238,8 +238,19 @@ public abstract class SnakeHunter
 
         try
         {
-            ExecResult execResult
-                = SimpleCommandLineProcessRunner.runCommand(cmdLine, input);
+            ExecResult execResult;
+            final Thread currentThread = Thread.currentThread();
+            final String threadName = currentThread.getName();
+            final String newThreadName = "Python Detector: waiting for: " + cmdLine.getCommandLineString();
+            currentThread.setName(newThreadName);
+            try
+            {
+                execResult = SimpleCommandLineProcessRunner.runCommand(cmdLine, input);
+            }
+            finally
+            {
+                currentThread.setName(threadName);
+            }
             return execResult;
         }
         catch (Exception e)
