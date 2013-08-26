@@ -144,9 +144,17 @@ public abstract class SnakeHunter
     private static final Pattern ourClassicPythonVersionPattern =
             Pattern.compile("Python\\s+((\\d+)\\.(\\d+))", Pattern.CASE_INSENSITIVE);
 
+    private static final String[] ourClassicPythonCommandLineParams =
+            new String[] { "-i" };
+
     private void examClassicPythons(Collection<File> pretendents, InstalledPythons pythons)
     {
-        examPythons(pretendents, PythonKind.Classic, ourClassicExamText, ourClassicPythonVersionPattern, 2, 3, 1, pythons);
+        examPythons(pretendents,
+                    PythonKind.Classic,
+                    ourClassicPythonCommandLineParams,
+                    ourClassicExamText,
+                    ourClassicPythonVersionPattern,
+                    2, 3, 1, pythons);
     }
 
 
@@ -173,10 +181,11 @@ public abstract class SnakeHunter
     protected abstract Pattern getIronPythonExeFileNamePattern();
 
 
-    private static final String ourIronExamText =
-            "from System import IntPtr                     \n" +
-            "print ('bitness='+(IntPtr.Size*8).ToString()) \n" +
-            "\u001A\n";
+    private static final String ourIronExamText = // must be in one line without line breaks, because is passed via a command-line parameter
+            "import sys; print(sys.version); from System import IntPtr; print ('bitness='+(IntPtr.Size*8).ToString())";
+
+    private static final String[] ourIronCommandLineParams =
+            new String[] { "-c", '"' + ourIronExamText + '"' };
 
     private static final Pattern ourIronPythonVersionPattern =
             Pattern.compile(
@@ -185,7 +194,7 @@ public abstract class SnakeHunter
 
     private void examIronPythons(Collection<File> pretendents, InstalledPythons pythons)
     {
-        examPythons(pretendents, PythonKind.Iron, ourIronExamText, ourIronPythonVersionPattern, 4, 5, 3, pythons);
+        examPythons(pretendents, PythonKind.Iron, ourIronCommandLineParams, null, ourIronPythonVersionPattern, 4, 5, 3, pythons);
     }
 
 
@@ -222,7 +231,7 @@ public abstract class SnakeHunter
 
 
     protected ExecResult runExeFile(final @NotNull File exeFile,
-                                    final @Nullable List<String> args,
+                                    final @Nullable String[] args,
                                     final @Nullable String inputText)
             throws ExecutionException
     {
@@ -230,7 +239,7 @@ public abstract class SnakeHunter
         cmdLine.setExePath(exeFile.getAbsolutePath());
         cmdLine.setPassParentEnvs(true);
         if (args != null)
-            cmdLine.addParameters(args);
+            cmdLine.addParameters(Arrays.asList(args));
 
         final byte[] input = inputText != null
                 ? inputText.getBytes()
@@ -267,7 +276,8 @@ public abstract class SnakeHunter
 
     protected void examPythons(final @NotNull Collection<File> pretendents,
                                final @NotNull PythonKind pythonKind,
-                               final @NotNull String examText,
+                               final @NotNull String[] commandLineParams,
+                               final @Nullable String inputStreamText,
                                final @NotNull Pattern versionPattern,
                                final int versionPatternMajorGroup,
                                final int versionPatternMinorGroup,
@@ -279,7 +289,7 @@ public abstract class SnakeHunter
             try
             {
                 ExecResult result =
-                        runExeFile(pretendent, Arrays.asList("-i"), examText);
+                        runExeFile(pretendent, commandLineParams, inputStreamText);
                 String output = result.getStdout() + result.getStderr();
 
                 Matcher m1 = versionPattern.matcher(output);
