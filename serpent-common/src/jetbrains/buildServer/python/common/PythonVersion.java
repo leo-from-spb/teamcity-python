@@ -72,7 +72,7 @@ public final class PythonVersion
     {
         int z = this.major - that.major;
         if (z == 0)
-            z = this.major - that.minor;
+            z = this.minor - that.minor;
         if (z == 0)
             z = this.string.compareTo(that.string);
         return z;
