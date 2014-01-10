@@ -5,6 +5,7 @@ import jetbrains.buildServer.agent.runner.BuildServiceAdapter;
 import jetbrains.buildServer.agent.runner.ProcessListener;
 import jetbrains.buildServer.agent.runner.ProgramCommandLine;
 import jetbrains.buildServer.agent.runner.SimpleProgramCommandLine;
+import jetbrains.buildServer.util.FileUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -163,12 +164,16 @@ public class PythonService extends BuildServiceAdapter
     }
 
 
+    /**
+     * Resolves the script.
+     * @param scriptPathAndName   relative or absolute path to the script.
+     * @return                    absolute path to the script.
+     */
     @NotNull
-    private File getAbsoluteFile(final @NotNull String relName)
-            throws RunBuildException
+    private File getAbsoluteFile(final @NotNull String scriptPathAndName)
     {
         final File workingDirectory = getWorkingDirectory();
-        return new File(workingDirectory, relName);
+        return FileUtil.resolvePath(workingDirectory, scriptPathAndName);
     }
 
 
