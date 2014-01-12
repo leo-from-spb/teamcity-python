@@ -68,12 +68,10 @@ public final class InstalledPython
 
 
     @Override
-    public int compareTo(InstalledPython that)
+    public int compareTo(@NotNull InstalledPython that)
     {
         if (this == that)
             return 0;
-        if (that == null)
-            throw new IllegalArgumentException("That is null.");
 
         int z = this.kind.compareTo(that.kind);
         if (z == 0)

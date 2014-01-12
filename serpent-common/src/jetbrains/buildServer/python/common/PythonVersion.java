@@ -55,12 +55,12 @@ public final class PythonVersion
 
 
     @Override
-    public boolean equals(Object o)
+    public boolean equals(Object that)
     {
-        if (this == o) return true;
-        if (o == null) return false;
+        if (this == that) return true;
+        if (that == null) return false;
 
-        return (o instanceof PythonVersion && equals((PythonVersion)o));
+        return (that instanceof PythonVersion && this.equals((PythonVersion)that));
     }
 
     public boolean equals(PythonVersion that)
@@ -77,11 +77,5 @@ public final class PythonVersion
         return (major << 16) | minor;
     }
 
-
-    /**
-     * Empty zero version.
-     */
-    @NotNull
-    public static final PythonVersion zero = new PythonVersion(0, 0, "");
 
 }

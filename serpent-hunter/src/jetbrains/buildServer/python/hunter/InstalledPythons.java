@@ -32,12 +32,6 @@ public final class InstalledPythons
     }
 
 
-    public InstalledPython[] toArray()
-    {
-        return pythons.toArray(new InstalledPython[pythons.size()]);
-    }
-
-
     @Override
     public String toString()
     {
