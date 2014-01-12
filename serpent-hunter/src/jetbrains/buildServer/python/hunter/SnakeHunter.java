@@ -7,7 +7,6 @@ import jetbrains.buildServer.SimpleCommandLineProcessRunner;
 import jetbrains.buildServer.python.common.PythonKind;
 import jetbrains.buildServer.python.common.PythonVersion;
 import jetbrains.buildServer.util.Bitness;
-import jetbrains.buildServer.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -58,7 +57,7 @@ public abstract class SnakeHunter
         String pathVar = trimAndNull(env2.get("path"));
         if (pathVar != null)
         {
-            List<String> pathEntries = StringUtil.split(pathVar, true, File.pathSeparatorChar);
+            List<String> pathEntries = split(pathVar, File.pathSeparatorChar, true, true);
             for (String pathEntry: pathEntries)
                 runPaths.add(new File(pathEntry));
         }
@@ -142,7 +141,7 @@ public abstract class SnakeHunter
             "\u001A";
 
     private static final Pattern ourClassicPythonVersionPattern =
-            Pattern.compile("Python\\s+((\\d+)\\.(\\d+))", Pattern.CASE_INSENSITIVE);
+            Pattern.compile("Python\\s+((\\d+)\\.(\\d+)(\\.\\d+)*)", Pattern.CASE_INSENSITIVE);
 
     private static final String[] ourClassicPythonCommandLineParams =
             new String[] { "-i" };

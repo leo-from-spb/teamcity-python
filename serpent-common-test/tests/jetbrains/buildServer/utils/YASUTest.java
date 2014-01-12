@@ -2,6 +2,7 @@ package jetbrains.buildServer.utils;
 
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -64,6 +65,38 @@ public class YASUTest
 
         String x = adjustCase("maRimba", strings);
         assertEquals("maRimba", x);
+    }
+
+
+    @Test
+    public void testSplit_empty() {
+        assertTrue(split(null, ',', true, true).isEmpty());
+        assertTrue(split("", ',', true, true).isEmpty());
+        assertTrue(split("   ", ',', true, true).isEmpty());
+    }
+
+    @Test
+    public void testSplit_commas() {
+        assertTrue(split(",", ',', true, true).isEmpty());
+        assertTrue(split(",    ,", ',', true, true).isEmpty());
+        assertTrue(split("  ,  ", ',', true, true).isEmpty());
+    }
+
+    @Test
+    public void testSplit_basic() {
+        final List<String> r = split("aaa,bbb,ccc", ',', true, true);
+        assertEquals(3, r.size());
+        assertEquals("aaa", r.get(0));
+        assertEquals("bbb", r.get(1));
+        assertEquals("ccc", r.get(2));
+    }
+
+    @Test
+    public void testSplit_doubleSeparator() {
+        final List<String> r = split("C://Windows", '/', true, true);
+        assertEquals(2, r.size());
+        assertEquals("C:", r.get(0));
+        assertEquals("Windows", r.get(1));
     }
 
 }

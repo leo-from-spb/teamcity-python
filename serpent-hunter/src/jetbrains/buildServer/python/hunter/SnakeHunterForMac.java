@@ -20,6 +20,8 @@ class SnakeHunterForMac extends SnakeHunter
     {
         addSubdirs(dirsToLook, "/Library/Frameworks/Python.framework/Versions");
         addDeepSubdirs(dirsToLook, "/Library/Frameworks/Python.framework/Versions", "bin");
+        addDeepSubdirs(dirsToLook, "/usr/local/Cellar/python", "bin");
+        addDeepSubdirs(dirsToLook, "/usr/local/Cellar/python3", "bin");
 
         dirsToLook.addAll(runPaths);
 
@@ -82,7 +84,7 @@ class SnakeHunterForMac extends SnakeHunter
                 {
                     File deepDir = new File(subDir, relativePath);
                     if (deepDir.isDirectory())
-                        dirsToLook.add(subDir);
+                        dirsToLook.add(deepDir);
                 }
     }
 

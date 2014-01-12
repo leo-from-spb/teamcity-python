@@ -2,9 +2,6 @@ package jetbrains.buildServer.python.common;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 
 /**
  * Version number of the python.
@@ -30,28 +27,6 @@ public final class PythonVersion
     public final String string;
 
 
-
-    private static final Pattern pattern =
-            Pattern.compile("(\\d+)\\.(\\d+)");
-
-
-    public PythonVersion(final @NotNull String string)
-    {
-        this.string = string;
-
-        Matcher m = pattern.matcher(string);
-        if (m.find())
-        {
-            major = Integer.parseInt(m.group(1));
-            minor = Integer.parseInt(m.group(2));
-        }
-        else
-        {
-            throw new IllegalArgumentException("Could not parse the python version: " + string);
-        }
-    }
-
-
     public PythonVersion(int major, int minor, @NotNull String string)
     {
         this.major = major;
@@ -68,7 +43,7 @@ public final class PythonVersion
 
 
     @Override
-    public int compareTo(PythonVersion that)
+    public int compareTo(@NotNull PythonVersion that)
     {
         int z = this.major - that.major;
         if (z == 0)
