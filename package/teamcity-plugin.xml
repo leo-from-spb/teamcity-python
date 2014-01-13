@@ -8,7 +8,7 @@
     <display-name>Python runner</display-name>
     <version>1.0.0.0</version>
     <vendor>
-      <name>Leonido</name>
+      <name>Leonid Bushuev</name>
       <url>http://code.google.com/p/teamcity-python</url>
     </vendor>
   </info>
