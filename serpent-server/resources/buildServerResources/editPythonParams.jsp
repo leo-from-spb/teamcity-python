@@ -19,16 +19,17 @@
           var bitnessSelector = $j("#bitness");
           var exeField = $j("#python-exe");
 
-          var kind = kindSelector.attr("value");
+          var kind = kindSelector.val();
 
           if (kind == 'C') verSelector.show();
           else             verSelector.hide();
 
-          if (kind == 'X' || kind == '*') { bitnessSelector.attr("value","*"); bitnessSelector.attr("disabled","disabled"); }
-          else bitnessSelector.removeAttr("disabled");
+          if (kind == 'X' || kind == '*') { 
+            bitnessSelector.val("*").prop("disabled",true); 
+          }
+          else bitnessSelector.prop("disabled", false);
 
-          if (kind == 'X') exeField.removeAttr("disabled");
-          else exeField.attr("disabled","disabled");
+          exeField.prop("disabled", kind !== 'X');
 
           this.refreshExeField();
       },
@@ -41,10 +42,10 @@
           var bitnessSelector = $j("#bitness");
           var exeField = $j("#python-exe");
 
-          var kind = kindSelector.attr("value");
+          var kind = kindSelector.val();
 
-          var exeString = exeField.attr("value");
-          var bitnessCode = bitnessSelector.attr("value");
+          var exeString = exeField.val();
+          var bitnessCode = bitnessSelector.val();
           var bitnessString = bitnessCode == '*' ? '' : '.x' + bitnessCode;
           switch (kind)
           {
@@ -52,7 +53,7 @@
                   exeString = "%AnyPython%";
                   break;
               case 'C':
-                  var ver = verSelector.attr("value");
+                  var ver = verSelector.val();
                   exeString = "%Python" + (ver == '*' ? '' : '.'+ver) + bitnessString + "%";
                   break;
               case 'I':
@@ -62,7 +63,7 @@
                   exeString = "%Jython%";
                   break;
           }
-          exeField.attr("value", exeString);
+          exeField.val(exeString);
       },
 
 
