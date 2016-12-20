@@ -43,13 +43,15 @@ def HandleArguments():
 
 def GetRevision():
 
-    args = [ 'hg', 'tip' ]
-    output = RunProcess(args)
-    revPattern = re.compile("""changeset:\s*(\d+):[a-fA-F0-9]+""")
-    found = revPattern.search(str(output))
-    revStr = found.group(1)
-    rev = int(revStr)
-    return rev
+    # args = [ 'hg', 'tip' ]
+    # output = RunProcess(args)
+    # revPattern = re.compile("""changeset:\s*(\d+):[a-fA-F0-9]+""")
+    # found = revPattern.search(str(output))
+    # revStr = found.group(1)
+    # rev = int(revStr)
+    # return rev
+
+    return 90 ## since the code migrated form Mercurial to Git it's impossible to get the revision number
 
 
 def RunProcess(args):

@@ -15,12 +15,11 @@
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-scripts/test-classic/tests/basic-classic.py" />
     <option name="PARAMETERS" value="" />
+    <option name="SHOW_COMMAND_LINE" value="false" />
     <RunnerSettings RunnerId="PyDebugRunner" />
     <RunnerSettings RunnerId="Run" />
     <ConfigurationWrapper RunnerId="PyDebugRunner" />
     <ConfigurationWrapper RunnerId="Run" />
-    <method>
-      <option name="Make" enabled="false" />
-    </method>
+    <method />
   </configuration>
 </component>

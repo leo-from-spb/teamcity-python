@@ -14,6 +14,7 @@
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/test-deploy.py" />
     <option name="PARAMETERS" value="$TeamCityDistribution$" />
+    <option name="SHOW_COMMAND_LINE" value="false" />
     <RunnerSettings RunnerId="Run" />
     <ConfigurationWrapper RunnerId="Run" />
     <method>

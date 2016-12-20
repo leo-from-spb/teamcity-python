@@ -3,9 +3,8 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.3" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="test-any" />
   </component>
 </module>
-

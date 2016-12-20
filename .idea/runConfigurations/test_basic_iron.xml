@@ -15,10 +15,9 @@
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-scripts/test-iron/tests/basic-iron.py" />
     <option name="PARAMETERS" value="" />
+    <option name="SHOW_COMMAND_LINE" value="false" />
     <RunnerSettings RunnerId="PyDebugRunner" />
     <ConfigurationWrapper RunnerId="PyDebugRunner" />
-    <method>
-      <option name="Make" enabled="false" />
-    </method>
+    <method />
   </configuration>
 </component>
