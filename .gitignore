@@ -1,0 +1,7 @@
+out
+lib/*.jar
+**/.svn
+**/*.orig
+.idea/workspace.*
+.idea/uiDesigner.*
+found.txt
