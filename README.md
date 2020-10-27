@@ -1,6 +1,6 @@
 # TeamCity Python Runner
 
-This project is a TeamCity Python runner.
+**This Python plugin is deprecated** in favor of the [new Python runner](https://www.jetbrains.com/help/teamcity/python.html) bundled with TeamCity since version 2020.2.
 
 The project about reporting python test messages to TeamCity was renamed to [teamcity-messages](https://github.com/JetBrains/teamcity-messages).
 
