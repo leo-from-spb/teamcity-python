@@ -19,6 +19,6 @@ that supports also virtual env, test reporting, etc.
 
 This repository was converted from [code.google.com/p/teamcity-python](https://code.google.com/p/teamcity-python).
 
-The last stable version is [1.0.84.138](http://teamcity-python.googlecode.com/files/python.zip.1.0.84.138).
+The last stable version is [1.0.90.1](https://plugins.jetbrains.com/plugin/download?rel=true&updateId=41431).
 
 
