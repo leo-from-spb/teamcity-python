@@ -2,7 +2,20 @@
 
 This project is a TeamCity Python runner.
 
-The project about reporting python test messages to TeamCity was renamed to [teamcity-messages](https://github.com/JetBrains/teamcity-messages).
+I've authored this plugin in 2011 in spite of the day 
+for running python scripts without problems of locating Python binaries 
+on different platforms.
+
+However, that times have changed, and now I don't support this plugin.  
+
+TeamCity since the version **2020.2** has a new 
+bundled **[Python Runner](https://www.jetbrains.com/help/teamcity/2020.2/python.html)**
+that supports also virtual env, test reporting, etc.
+
+
+
+
+## Sources
 
 This repository was converted from [code.google.com/p/teamcity-python](https://code.google.com/p/teamcity-python).
 
